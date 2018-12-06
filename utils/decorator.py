@@ -1,6 +1,6 @@
 from django.http.response import JsonResponse
 
-from guowen.response_code import CODE
+from ota.response_code import CODE
 
 
 def is_login(func):

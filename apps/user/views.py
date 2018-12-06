@@ -7,9 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import authenticate, login, logout
 
-from guowen.response_code import CODE
+from ota.response_code import CODE
 
-logger = logging.getLogger('guowen')
+logger = logging.getLogger('ota')
 
 
 class LoginView(View):

@@ -9,10 +9,10 @@ from django.contrib.auth.decorators import login_required
 
 from utils.decorator import is_login
 
-from guowen.response_code import CODE
+from ota.response_code import CODE
 from faq.models import FAQ
 
-logger = logging.getLogger('guowen')
+logger = logging.getLogger('ota')
 
 
 class FAQListView(View):

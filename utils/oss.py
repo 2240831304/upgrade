@@ -5,7 +5,7 @@ from oss2.models import BucketLogging
 
 from django.conf import settings
 
-logger = logging.getLogger('guowen')
+logger = logging.getLogger('ota')
 
 auth = oss2.Auth(settings.ACCESS_KEY_ID, settings.ACCESS_KEY_SECRET)
 bucket = oss2.Bucket(auth, settings.END_POINT, settings.BUCKET_NAME)

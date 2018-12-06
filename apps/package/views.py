@@ -14,9 +14,9 @@ from django.contrib.auth.decorators import login_required
 
 from utils.decorator import is_login
 from package.models import Reader, RVersion, Package
-from guowen.response_code import CODE, RET
+from ota.response_code import CODE, RET
 
-logger = logging.getLogger("guowen")
+logger = logging.getLogger("ota")
 
 
 def get_update_versions(reader_id):
