@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/packages.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/packages.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="edit-header">
+        <div class="tips fl">
+            测试库更新包数据列表
+            <span style="color:red;">（以下列表中存在需要上传的更新时点击编辑更新软件包即可!）</span>
+        </div>
+        <div class="add-pack fl">
+            <a href="{% url 'pack:pack_add' pid=pid %}">添加</a>
+        </div>
+    </div>
+    <div class="pack-table">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th width="10%">基础版本</th>
+                    <th width="10%">硬件版本</th>
+                    <th width="35%">链接地址</th>
+                    <th width="35%">md5地址</th>
+                    <th width="10%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pack_obj in pack_objs %}
+                <tr>
+                    <td>{{ pack_obj.base_version }}</td>
+                    <td>{{ pack_obj.model }}</td>
+                    <td>{{ pack_obj.pack }}</td>
+                    <td>{{ pack_obj.md5 }}</td>
+                    <td>
+                        <a href="javascript:;" pid="{{ pack_obj.pid }}" pack_id="{{ pack_obj.id }}" id="pack_edit">编辑</a>
+                        <a href="javascript:;" id="pack_del" style="color: red">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

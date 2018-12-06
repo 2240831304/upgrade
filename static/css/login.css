@@ -1,0 +1,84 @@
+.main-login{
+    height: 340px;
+    width: 540px;
+    margin: 28px auto 63px;
+    background-color: #c9d3e2;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.login-border{
+    height: 320px;
+    width: 520px;
+    margin: 10px;
+    background: -webkit-linear-gradient(top, #FFF, #CCC);
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.tips{
+    margin-top: 47px;
+    text-align: center;
+}
+
+.tips h1{
+    font-size: 1.5em;
+    font-weight: 600;
+    font-family: fzqt;
+    color: #666666;
+}
+
+.login-form{
+    height: 140px;
+    width: 330px;
+    margin: 30px auto 0px;
+}
+
+.username, .passwd, .error-msg{
+    height: 17px;
+}
+
+.login-form label{
+    line-height: 17px;
+    padding-top: 5px;
+}
+
+.username input, .passwd input{
+    background-color: rgb(250, 255, 189) !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+    font-family: vani;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-bottom-color: initial;
+    border-left-color: initial;
+    border-image: initial;
+}
+
+.login-form .passwd{
+    margin-top: 16px;
+}
+
+.login-form .error-msg{
+    margin-top: 20px;
+    line-height: 17px;
+    color: red;
+    text-align: center
+}
+
+
+.login-form .submit{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.submit input{
+    font-family: vani;
+    padding: 1px 6px;
+    border: #acaeb1 1px solid;
+    text-align: center;
+    background-color: #e9ebee;
+}

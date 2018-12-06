@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+<GetReaderPackage>
+   <Item>
+     <title>{{ title }}</title>
+     <content>{{ description|safe }}</content>
+   </Item>
+   <Version>{{ base_version }}</Version>
+   <GetPackageUrl>{{ pack }}</GetPackageUrl>
+   <Md5>{{ md5 }}</Md5>
+</GetReaderPackage>
+</Response>
+
+

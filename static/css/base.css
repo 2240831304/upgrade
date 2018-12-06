@@ -1,0 +1,84 @@
+body{
+    background-color: #b6b7bc;
+    font-size: .80em;
+    color: #696969;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+}
+
+.page{
+    width: 960px;
+    background-color: #fff;
+    margin: 20px auto 0px;
+    border: 1px solid #496077;
+}
+
+.header{
+    width: 100%;
+    height: 86px;
+    background-color: #4b6c9e;
+}
+
+.top_bar{
+    height: 51px;
+}
+
+.title, .login{
+    text-align: left;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+}
+
+.title h1{
+    color: #f9f9f9;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 2em;
+    text-indent: 1em;
+}
+
+.login{
+    margin: 10px 10px 0px 0px;
+    color: #f9f9f9;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+.login a{
+    color: #f9f9f9;
+    font-weight: normal;
+    font-size: inherit;
+}
+
+.navigation{
+    height: 35px;
+    background-color: #3a4f63;
+}
+
+.navigation ul {
+    margin-left: 8px;
+}
+
+.navigation div{
+    margin: 4px 0px;
+    background-color: #465c71;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+}
+
+.navigation li{
+    padding: 4px 20px;
+}
+
+.navigation a{
+    color: inherit;
+}
+
+.navigation div:hover{
+    background-color: #bfcbd6;
+    color: #465c71;
+}
+
+.main{
+    background-color: white;
+    margin: 12px 20px 8px;
+    min-height: 420px;
+}

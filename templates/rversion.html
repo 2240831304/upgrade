@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/rversion.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/tiny_mce_src.js' %}"></script>
+<script src="{% static 'js/rversion.js' %}"></script>
+<script type="text/javascript">
+    tinyMCE.init({
+        'mode': 'textareas',
+        'theme': 'simple',
+        'language': 'zh-cn',
+        'width': 400,
+        'height': 100
+    });
+</script>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="rversion-edit-header">
+        <div class="tips fl">
+            当当国文阅读器更新信息
+            <span style="color:red;">（提交前请先更新软件包）</span>
+        </div>
+        <div class="func fr">
+            <div class="pack-list fl">
+                <a href="{% url 'pack:packages' pid=rv_obj.id %}">软件包列表</a>
+            </div>
+            <div class="history fr">
+                <a href="{% url 'pack:rversions' reader_id=rv_obj.reader_id %}">查看历史版本</a>
+            </div>
+        </div>
+    </div>
+    <div class="rversion-edit-info">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <label>阅读器号</label>
+                <input type="hidden" value="{{ rv_obj.id }}" id="rv_id">
+                <input type="hidden" value="{{ rv_obj.reader_id }}">
+                <input type="text" id="reader_name" name="reader_name" value="{{ rv_obj.reader_name }}"
+                    readonly="readonly">
+            </li>
+            <li>
+                <label>版本号</label><input name="version" id="version" value="{{ rv_obj.version }}" type="text">
+            </li>
+            <li>
+                <label>标题</label><input name="v-title" id="v-title" value="{{ rv_obj.title }}" type="text">
+            </li>
+            <li>
+                <input type="hidden" id="textarea_tmp" value="{{ rv_obj.description }}" />
+                <label>描述</label><textarea name="v-description" id="description"></textarea>
+            </li>
+            <li>
+                <label>依赖版本</label>
+                <select name="depend-version" id="depend_version">
+                    <option value="0">--无--</option>
+                    {% for version in versions %}
+                    {% if version == rv_obj.depend_version %}
+                    <option value="{{ version }}" selected>{{ version }}</option>
+                    {% else %}
+                    <option value={{ version }}>{{ version }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </li>
+        </ul>
+        <div class="rversion-sub">
+            <label>&nbsp;</label>
+            <input type="button" id="rversion_sub" value="提交">
+        </div>
+    </div>
+</div>
+{% endblock %}

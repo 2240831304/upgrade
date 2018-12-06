@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/tiny_mce_src.js' %}"></script>
+<script type="text/javascript">
+    tinyMCE.init({
+        'mode': 'textareas',
+        'theme': 'simple',
+        'language': 'zh-cn',
+        'width': 400,
+        'height': 100
+    });
+</script>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="func">
+        <div class="pub-reader fl">
+            <span>增加阅读器系统新版本:</span>
+            {% csrf_token %}
+            <a href="#" class='pub'>发&nbsp;布</a>
+        </div>
+        <div class="add-reader fl">
+            <input type="text" class="reader" placeholder="输入阅读器名称" />
+            <input type="button" value="添加" class="addbtn" />
+        </div>
+    </div>
+    <div class="reader-table">
+        <table>
+            <thead>
+                <tr>
+                    <th width="10$">阅读器号</th>
+                    <th width="10%">版本号</th>
+                    <th width="18%">标题</th>
+                    <th width="25%">描述</th>
+                    <th width="15%">同步到外网环境</th>
+                    <th width="10%">日期</th>
+                    <th width="12%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rv in rv_list %}
+                <tr>
+                    <input type="hidden" id="reader_id" value="{{ rv.reader_id }}">
+                    <td id="r_name">{{ rv.reader_name }}</td>
+                    <td>{{ rv.version }}</td>
+                    <td>{{ rv.title }}</td>
+                    <td>{{ rv.description|safe }}</td>
+                    <input type="hidden" id="rv_id" name="rv_id" value="{{ rv.id }}" />
+                    {% if rv.state == 0 %}
+                    <td><input type="button" id="is_update" value="同步更新" /></td>
+                    {% elif rv.state == 1 %}
+                    <td><input type="button" id="is_update" value="同步更新" disabled="disabled" /></td>
+                    {% endif %}
+                    <td>{{ rv.update_time|date:'Y/m/d H:i:s' }}</td>
+                    <td>
+                        {% if rv.state == 0 %}
+                        <input type="button" id="edit" value="编辑">&nbsp;&nbsp;
+                        {% elif rv.state == 1 %}
+                        <input type="button" id="history" value="查看">&nbsp;
+                        {% endif %}
+                        <!-- 目前不需要 -->
+                        <!-- <input type="button" id="del" value="删除"> -->
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    <div class="pop-shadow"></div>
+    <div class="pop-main" id="pop">
+        <div class="pop-con">
+            <div class="pop-title" id="pop-title">
+                <h3>添加新的阅读器版本</h3>
+            </div>
+            <span class="close-ico"><a href="javascript:;"></a></span>
+            <div class="pop-detail">
+                <ul>
+                    <li>
+                        <label>阅读器</label>
+                        <select name="reader_name" id="reader_name">
+                            <option value="0">--无--</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label>版本号</label><input name="version" id="version" type="text">
+                    </li>
+                    <li>
+                        <label>标题</label><input name="v-title" id="v_title" type="text">
+                    </li>
+                    <li>
+                        <label>依赖版本</label>
+                        <select name="depend-version" id="depend_version">
+                            <option value="0">--无--</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label>描述</label><textarea id="v-description" name="v-description"></textarea>
+                    </li>
+                </ul>
+                <div class="rversion-sub">
+                    <label>&nbsp;</label>
+                    <input type="button" id="rversion_sub" value="提交">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

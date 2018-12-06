@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/faq.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/faqedit.js' %}"></script>
+<script src="{% static 'js/tiny_mce_src.js' %}"></script>
+<script type="text/javascript">
+    tinyMCE.init({
+        'mode': 'textareas',
+        'theme': 'simple',
+        'language': 'zh-cn',
+        'width': 400,
+        'height': 100
+    });
+</script>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="faq-edit-header">
+        <div class="tips fl">
+            faq编辑
+        </div>
+    </div>
+    <div class="faq-edit-info">
+            <ul>
+                {% csrf_token %}
+
+                <li>
+                    <input type="hidden" id="faq_id" value="{{ faq_obj.id }}" />
+                    <label>问题</label><input type="text" id="question" name="question" value="{{ faq_obj.question }}">
+                </li>
+                <li>
+                    <input type="hidden" id="answer_tmp" value="{{ faq_obj.answer }}">
+                    <label>解答</label><textarea name="answer" id="answer"></textarea>
+                </li>
+            </ul>
+            <div class="faq-sub">
+                <label>&nbsp;</label>
+                <input type="submit" id="faq_sub" value="提交">
+            </div>
+    </div>
+</div>
+{% endblock %}

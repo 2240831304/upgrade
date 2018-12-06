@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/faqs.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/faqs.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="edit-header">
+        <div class="tips fl">
+            测试库更新包数据列表
+        </div>
+        <div class="add-faq fl">
+            <a href="{% url 'faq:faq_add' %}">添加</a>
+        </div>
+    </div>
+    <div class="faq-table">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th width="45%">问题</th>
+                    <th width="45%">解答</th>
+                    <th width="10%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for faq_obj in faq_objs %}
+                <tr>
+                    <td>{{ faq_obj.question }}</td>
+                    <td>{{ faq_obj.answer|safe }}</td>
+                    <td>
+                        <a href="{% url 'faq:faq_edit' faq_id=faq_obj.id %}">编辑</a>
+                        <a href="javascript:;" id="faq_del" style="color: red;">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

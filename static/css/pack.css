@@ -1,0 +1,52 @@
+.pack-edit-header{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.tips{
+    line-height: 35px;
+    margin-left: 40px;
+}
+
+.pack-edit-info li{
+    margin-bottom: 15px;
+}
+
+.pack-edit-info label{
+    float: left;
+    margin-left: 65px;
+    display: block;
+    line-height: 32px;
+    width: 80px;
+}
+
+.pack-edit-info input{
+    width: 345px;
+    height: 32px;
+    line-height: 32px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+}
+
+.pack-edit-info .file{
+    -webkit-appearance: initial;
+    background-color: initial;
+    cursor: default;
+    padding: initial;
+    border: initial;
+}
+
+
+.pack-sub input{
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    width: 111px;
+    border-radius: 4px;
+    background-color: #3c95c8;
+}

@@ -1,0 +1,98 @@
+.detail ul{
+    margin-left: 40px;
+    margin-bottom: 12px;
+}
+
+.detail h2{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.detail a{
+    color: #034af3;
+}
+
+.pop-shadow{
+    z-index: 19891015;
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+div.pop-main{
+    height: 450px;
+    width: 620px;
+    position: absolute;
+    top: 50%;
+    margin-top: -225px;
+    left: 50%;
+    margin-left: -310px;
+    background-color: #fff;
+    pointer-events: auto;
+    z-index: 19891019;
+    box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+    display: none;
+}
+
+.pop-title{
+    background-color: #F8F8F8;
+}
+
+.pop-title h3{
+    margin: 0 80px 0 20px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    border-radius: 2px 2px 0 0;
+}
+
+.close-ico{
+
+    width:15px;
+    height:15px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 0;
+    background: url(../img/icon.png) no-repeat;
+    background-position: 1px -40px;
+}
+
+.close-ico a{
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+#forscroll{
+    width: 620px;
+    height: 407px;
+    overflow: auto;
+}
+
+.pack-table table{
+    border: solid 1px #B4B4B4;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    width: 918px;
+
+}
+
+.pack-table th, .pack-table td{
+    border: solid 1px #B4B4B4;
+    padding: 4px;
+}
+
+.pack-table thead tr{
+    align: center;
+}

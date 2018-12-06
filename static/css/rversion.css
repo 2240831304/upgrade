@@ -1,0 +1,79 @@
+.rversion-edit-header{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.tips{
+    line-height: 35px;
+    margin-left: 40px;
+}
+
+.func div{
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    width: 111px;
+    border-radius: 4px;
+    background-color: #3c95c8;
+    text-align: center;
+}
+
+.func a{
+    color: #fff;
+}
+
+.func .history{
+    margin-left: 10px;
+}
+
+.rversion-edit-info li{
+    margin-bottom: 15px;
+}
+
+.rversion-edit-info label{
+    float: left;
+    margin-left: 65px;
+    display: block;
+    line-height: 32px;
+    width: 80px;
+}
+
+.rversion-edit-info input{
+    width: 345px;
+    height: 32px;
+    line-height: 32px;
+    border-top: solid 1px #a7b5bc;
+    border-left: solid 1px #a7b5bc;
+    border-right: solid 1px #ced9df;
+    border-bottom: solid 1px #ced9df;
+    text-indent: 10px;
+}
+
+.rversion-edit-info textarea{
+    font-size: 12px;
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: none;
+    width: 351px;
+    height: 70px;
+}
+
+.rversion-edit-info select{
+    width: 150px;
+    height: 30px;
+}
+
+.rversion-sub input{
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    width: 111px;
+    border-radius: 4px;
+    background-color: #3c95c8;
+}

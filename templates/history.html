@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/history.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/history.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="detail">
+        {% for rversion in rversions %}
+        <ul>
+            <li>
+                <h2>{{ rversion.reader_name }}{{ rversion.version }}&nbsp;:&nbsp;{{ rversion.update_time|date:'Y/m/d H:i:s' }}更新内容如下</h2>
+            </li>
+            <li>{{ rversion.description|safe }}</li>
+            <input type="hidden" id="rv_id" value="{{ rversion.id }}" />
+            <li><a id="package" href="javascript:void(0)">查看软件包</a></li>
+        </ul>
+        {% endfor %}
+    </div>
+    <div class="pop-shadow"></div>
+        <div class="pop-main" id="pop">
+        <div class="pop-con">
+            <div class="pop-title" id="pop-title">
+                <h3>查看软件包</h3>
+            </div>
+            <span class="close-ico"><a href="javascript:;"></a></span>
+            <div id="forscroll">
+                <div class="pack-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="10%">基础版本</th>
+                                <th width="10%">硬件版本</th>
+                                <th width="35%">链接地址</th>
+                                <th width="35%">md5地址</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block load %}
+    {% load static from staticfiles %}
+{% endblock %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block top-title %}
+        当当国文阅读器更新包
+        {% endblock %}
+    </title>
+    <link href="{% static 'css/reset.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/func.js' %}"></script>
+    {% block link %}
+
+    {% endblock %}
+</head>
+
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="top_bar">
+                <div class="title fl">
+                    <h1>
+                        当当国文电子阅读器软件更新
+                    </h1>
+                </div>
+                <div class="login fr">
+                    {% if request.user.is_authenticated %}
+                        欢迎您&nbsp;{{ request.user.username }}|
+                        <a id="logout" href="{% url 'user:logout' %}">注销</a>
+                    {% else %}
+                        <a id="login" href="#">[登录]</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="navigation">
+                <ul>
+                    <div class="package-list fl clearfix">
+                        <li>
+                            <a href="{% url 'pack:index' %}">更新包列表</a>
+                        </li>
+                    </div>
+                    <div class="faq-list fl clearfix">
+                        <li>
+                            <a href="{% url 'faq:faqs' %}">faq列表</a>
+                        </li>
+                    </div>
+                </ul>
+
+            </div>
+        </div>
+        {% block main %}
+            <div class="main">
+            </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>

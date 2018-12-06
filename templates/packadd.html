@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/pack.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/jquery.form.min.js' %}"></script>
+<script src="{% static 'js/packadd.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="pack-edit-header">
+        <div class="tips fl">
+            当当国文阅读器更新包上传
+            <span style="color:red;">（上传的更新包与服务器已上传的包同名会进行覆盖！）</span>
+        </div>
+    </div>
+    <div class="pack-edit-info">
+        <form action='#' method="post" enctype="multipart/form-data" id="pack_info">
+            <ul>
+                {% csrf_token %}
+                <input type="hidden" name="pid" id="pid" value="{{ pid }}" />
+                <li>
+                    <label>基础版本号</label><input type="text" id="base_version" name="base_version">
+                </li>
+                <li>
+                    <label>硬件版本</label><input name="model" id="model" type="text">
+                </li>
+                <li>
+                    <label>更新包</label><input class="file" name="pack_con" id="pack_con" type="file">
+                </li>
+                <li>
+                    <label>Md5</label><input class="file" name="md5_con" id="md5_con" type="file">
+                </li>
+            </ul>
+            <div class="pack-sub">
+                <label>&nbsp;</label>
+                <input type="submit" id="pack_sub" value="提交">
+            </div>
+        </form>
+
+
+    </div>
+</div>
+{% endblock %}
