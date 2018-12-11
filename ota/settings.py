@@ -191,7 +191,7 @@ LOGGING = {
     },
     # 日志器[处理日志的对象配置]
     'loggers': {
-        'ota': {  # 定义了一个名为yuewen的日志器
+        'ota': {  # 定义了一个名为ota的日志器
             'handlers': ['console', 'file'],
             # 是否要把当前日志向上一级传递
             'propagate': True,

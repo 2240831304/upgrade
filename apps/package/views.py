@@ -326,6 +326,7 @@ class ReaderVersionsView(View):
         }
         return JsonResponse(content)
 
+
 # 同步更新
 class RVersionStateView(View):
     @method_decorator(is_login)
@@ -636,7 +637,7 @@ def upgrade_version(cu_version, reader_id, p_rv_obj):
     # 检验最新版本是否有依赖版本
     if depend_version:
         if cu_version < depend_version:  # 比依赖版本小
-            rv_obj = RVersion.objects.filter(reader_name=reader_id, version=depend_version).first()
+            rv_obj = RVersion.objects.filter(reader_id=reader_id, version=depend_version).first()
             upgrade_version(cu_version, reader_id, rv_obj)
     return p_rv_obj
 
@@ -644,16 +645,16 @@ def upgrade_version(cu_version, reader_id, p_rv_obj):
 def get_pack(request, is_test):
     version = request.GET.get('version', '')
     model = request.GET.get('model', '')
-    accept_encoding = request.META.get('HTTP_ACCEPT_ENCODING')
+    # accept_encoding = request.META.get('HTTP_ACCEPT_ENCODING')
     action = request.META.get("HTTP_ACTION")
     device = request.META.get("HTTP_DEVICE")
     version = version.strip("V")
 
     # 校验参数
-    if accept_encoding.strip() != "":
-        response = render(request, 'xml/default.xml', content_type="application/xml")
-        response['result-code'] = RET.ENCODINGERR
-        return response
+    # if accept_encoding.strip() != "":
+    #     response = render(request, 'xml/default.xml', content_type="application/xml")
+    #     response['result-code'] = RET.ENCODINGERR
+    #     return response
 
     if action != 'getReaderPackage':
         response = render(request, 'xml/default.xml', content_type="application/xml")
@@ -703,24 +704,25 @@ def get_pack(request, is_test):
     up_obj = upgrade_version(version, reader_id, max_obj)
 
     # 获取要升级版本的基础版本号
-    base_version = re.search(r'(\d+?)\.', up_obj.version).group(1) + '.0'
+    base_version = re.search(r'(\d+?)\.', version).group(1) + '.0'
 
     # 过滤富文本html标签
-    des = up_obj.description
-    pattern = re.compile('>(.*?)<')
-    # 取html标签中的数据
-    des = pattern.findall(des)
-    # 去除列表空字符串
-    des = filter(None, des)
-    # 拼接
-    description = "&lt;br&gt;".join(des)
+    description = up_obj.description
+    if "<" in description:
+        pattern = re.compile('>(.*?)<')
+        # 取html标签中的数据
+        des = pattern.findall(description)
+        # 去除列表空字符串
+        des = filter(None, des)
+        # 拼接
+        description = "&lt;br&gt;".join(des)
 
     pack_obj = Package.objects.filter(base_version=base_version, model=model).first()
 
     context = {
         "title": up_obj.title,
         "description": description,
-        "base_version": pack_obj.base_version,
+        "version": up_obj.version,
         "pack": pack_obj.pack,
         "md5": pack_obj.md5,
     }

@@ -14,7 +14,7 @@ function checkReader(reader_name) {
 
 // 校验阅读器版本号
 function checkRVersion(rversion) {
-    var reg = new RegExp("^((?!0)(?:[0-9]{1,3})\\.)+((?!0)(?:[0-9]{1,3})|0)$");
+    var reg = new RegExp("^((?!0)(?:[0-9]{1,3})\\.)((?!0)(?:[0-9]{1,3})|0\\.)*((?!0)(?:[0-9]{1,3})|0)$");
     res = reg.test(rversion);
     return res
 }

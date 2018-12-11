@@ -56,14 +56,14 @@
                     <input type="hidden" id="rv_id" name="rv_id" value="{{ rv.id }}" />
                     {% if rv.state == 0 %}
                     <td><input type="button" id="is_update" value="同步更新" /></td>
-                    {% elif rv.state == 1 %}
+                    {% elif rv.state == 2 %}
                     <td><input type="button" id="is_update" value="同步更新" disabled="disabled" /></td>
                     {% endif %}
                     <td>{{ rv.update_time|date:'Y/m/d H:i:s' }}</td>
                     <td>
                         {% if rv.state == 0 %}
                         <input type="button" id="edit" value="编辑">&nbsp;&nbsp;
-                        {% elif rv.state == 1 %}
+                        {% elif rv.state == 2 %}
                         <input type="button" id="history" value="查看">&nbsp;
                         {% endif %}
                         <!-- 目前不需要 -->

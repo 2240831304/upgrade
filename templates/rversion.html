@@ -60,11 +60,11 @@
                 <select name="depend-version" id="depend_version">
                     <option value="0">--无--</option>
                     {% for version in versions %}
-                    {% if version == rv_obj.depend_version %}
-                    <option value="{{ version }}" selected>{{ version }}</option>
-                    {% else %}
-                    <option value={{ version }}>{{ version }}</option>
-                    {% endif %}
+                        {% if version.1 == rv_obj.depend_version %}
+                            <option value="{{ version.1 }}" selected>{{ version.1 }}</option>
+                        {% else %}
+                            <option value={{ version.1 }}>{{ version.1 }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </li>
