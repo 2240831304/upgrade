@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'faq.apps.FaqConfig',
     'package.apps.PackageConfig',
     'user.apps.UserConfig',
+    'general_user.apps.GeneralUserConfig',
     'tinymce',
 ]
 
@@ -84,6 +85,14 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sznewupdate_test',
+        'HOST': 'localhost',
+        'PORT': 3306,
+        'USER': 'root',
+        'PASSWORD': 'mysql',
+    },
+    "generaldb": {
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sznewupdate',
         'HOST': 'localhost',
         'PORT': 3306,
@@ -92,6 +101,13 @@ DATABASES = {
     }
 }
 
+# 设置数据库的路由规则方法
+DATABASE_ROUTERS = ['ota.database_router.DatabaseAppsRouter']
+
+# 设置数据库和app的对应关系
+DATABASE_APPS_MAPPING = {
+    'general_user': 'generaldb',
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -210,8 +226,14 @@ ACCESS_KEY_ID = 'LTAI4qCrfAcJ56gg'
 ACCESS_KEY_SECRET = 'PSHYEjut4Lr2HiGngiOwgdV3tfVVVR'
 END_POINT = "oss-cn-shenzhen.aliyuncs.com"
 PREFIX_URL = 'http://'
-BUCKET_NAME = "sznewupdatetest"
-DOWNLOAD_URL_PRE = 'http://pack.obook.com.cn/'
+# 测试人员使用
+TEST_BUCKET_NAME = "sznewupdatetest"
+TEST_DOWNLOAD_URL_PRE = 'http://pack.obook.com.cn/szdownloadtest/'
+
+# 用户使用
+BUCKET_NAME = 'sznewupdate'
+DOWNLOAD_URL_PRE = 'http://pack.obook.com.cn/szdownload/'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

@@ -6,7 +6,7 @@ with open('./sznewupdate_test_dbo_PackageUpdate.sql', 'r+') as f:
     content = f.read()
 
     old_str = r'sznewupdate_test.dbo.PackageUpdate'
-    new_str = 'sznewupdate.rversion'
+    new_str = 'sznewupdate_test.rversion'
     content = re.sub(old_str, new_str, content)
 
     old_str = r'\(readername, Version, Title, Content, Time, isupdate, Vmiddle, sort\)'
@@ -85,7 +85,7 @@ with open('./sznewupdate_test_dbo_Packagelist.sql', 'r+') as f:
     content = f.read()
 
     old_str = r"sznewupdate_test.dbo.Packagelist"
-    new_str = "sznewupdate.package"
+    new_str = "sznewupdate_test.package"
     content = re.sub(old_str, new_str, content)
 
     old_str = r"\(baseversion, url, Md5, Model, PID\)"

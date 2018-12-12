@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from package.views import get_package_test
-from package.views import get_package, upload_pack
+from package.views import get_package_test, upload_pack
+from general_user.views import get_package
 
 
 urlpatterns = [

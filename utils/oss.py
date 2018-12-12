@@ -13,7 +13,7 @@ bucket = oss2.Bucket(auth, settings.END_POINT, settings.BUCKET_NAME)
 
 def put_alios(obj_name, content):
     result = bucket.put_object(obj_name, content)
-    url = settings.DOWNLOAD_URL_PRE + obj_name
+    url = settings.TEST_DOWNLOAD_URL_PRE + obj_name
     if result.status == 200:
         return url
     else:

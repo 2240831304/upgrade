@@ -46,7 +46,7 @@ $(document).ready(function () {
                     oVersionSelect.empty();
                     oVersionSelect.append('<option value="0">--无--</option>');
                     $.each(versions, function (i, item) {
-                        oVersionSelect.append('<option value="' + item[0] + '">' + item[1] + '</option>')
+                        oVersionSelect.append('<option value="' + item[1] + '">' + item[1] + '</option>')
                     })
                 } else if (response.code == '4102') {
                     alert("登录信息过期");
