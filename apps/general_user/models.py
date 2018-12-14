@@ -9,6 +9,11 @@ STATE_CHOICE = (
     (2, '已同步'),
 )
 
+IS_DELETE = (
+    (0, '新增'),
+    (1, '已删除')
+)
+
 
 class RVersion(BaseModel):
     reader_id = models.IntegerField(verbose_name='阅读器id')
@@ -32,6 +37,7 @@ class Package(BaseModel):
     pack = models.CharField(max_length=256, verbose_name='升级包下载地址')
     md5 = models.CharField(max_length=256, verbose_name='校验码下载地址')
     pid = models.IntegerField(verbose_name='阅读器版本ID')
+    state = models.IntegerField(default=0, choices=IS_DELETE, verbose_name='升级包版本状态')
 
     class Meta:
         app_label = 'general_user'

@@ -2,6 +2,7 @@ import logging
 import re
 import requests
 from multiprocessing.dummy import Pool
+from urllib.parse import urlsplit
 
 from django.conf import settings
 from django.db.models import F
@@ -11,14 +12,17 @@ from django.views import View
 from django.http import QueryDict
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.db import transaction
 
 from utils.decorator import is_login
 from package.models import Reader, RVersion, Package
 from ota.response_code import CODE
 from package.signals.signals import sync_update_signal
+from utils.oss import LocalOSS
 
 logger = logging.getLogger("ota")
+
+# 判断是否上传测试数据库升级包
+IS_TEST = False
 
 
 def get_update_versions(reader_id):
@@ -376,7 +380,7 @@ class ReaderRVersionsView(View):
     @method_decorator(login_required)
     def get(self, request, reader_id):
         '''返回当前阅读器所有的已同步更新的所有版本的所有信息'''
-        rversions = RVersion.objects.filter(reader_id=reader_id)
+        rversions = RVersion.objects.filter(reader_id=reader_id).order_by('update_time')
 
         # 对描述进行处理
         for rversion in rversions:
@@ -445,9 +449,9 @@ class PackageAddView(View):
             return JsonResponse(content)
 
         # 上传文件，保存数据库信息
-        from utils.oss import put_alios
-        pack_url = put_alios(pack_con.name, pack_con.chunks())
-        md5_url = put_alios(md5_con.name, md5_con.chunks())
+        oss_obj = LocalOSS(settings.BUCKET_NAME)
+        pack_url = oss_obj.put_object(pack_con.name, pack_con.chunks(), obj_key=settings.TEST_OBJECT_KEY)
+        md5_url = oss_obj.put_object(md5_con.name, md5_con.chunks(), obj_key=settings.TEST_OBJECT_KEY)
 
         if not pack_url:
             logger.error("上传文件{}出错".format(pack_con.name))
@@ -526,13 +530,13 @@ class PackageEditView(View):
                 return JsonResponse(content)
         else:
             # 修改了文件
-            from utils.oss import put_alios, del_alios
+            oss_obj = LocalOSS(settings.BUCKET_NAME)
             # 删除之前的包文件
             package = Package.objects.filter(id=pack_id).first()
-            pack_name = re.search(r'^.*/(.*)?$', package.pack).group(1)
-            md5_name = re.search(r'^.*/(.*)?$', package.md5).group(1)
+            pack_name = urlsplit(package.pack).path[1:]
+            md5_name = urlsplit(package.md5).path[1:]
 
-            result = del_alios([pack_name, md5_name])
+            result = oss_obj.del_objects([pack_name, md5_name])
 
             if not result:
                 content = {
@@ -542,8 +546,8 @@ class PackageEditView(View):
                 return JsonResponse(content)
 
             # 保存新的包文件
-            pack_url = put_alios(pack_con.name, pack_con.chunks())
-            md5_url = put_alios(md5_con.name, md5_con.chunks())
+            pack_url = oss_obj.put_object(pack_con.name, pack_con.chunks(), obj_key=settings.TEST_OBJECT_KEY)
+            md5_url = oss_obj.put_object(md5_con.name, md5_con.chunks(), obj_key=settings.TEST.OBJECT_KEY)
 
             try:
                 Package.objects.create(pid=pid, base_version=base_version, model=model, pack=pack_url, md5=md5_url)
@@ -643,55 +647,89 @@ def get_package_test(request):
     return get_pack(request, True, RVersion, Package)
 
 
-def upload(pack_obj):
+def change_domain(pack_obj, pack_name, md5_name):
+    # 修改域名
+    try:
+        pack_obj.pack = settings.DOWNLOAD_URL_PRE + pack_name
+        pack_obj.md5 = settings.DOWNLOAD_URL_PRE + md5_name
+        pack_obj.save()
+        logger.debug("{}修改完成".format(pack_name))
+        logger.debug("{}修改完成".format(md5_name))
+        return True
+    except Exception as e:
+        logger.error("修改域名失败 detail{}".format(e))
+        return False
+
+
+# 上传原有升级包到oss
+def _upload(pack_obj):
     pack = pack_obj.pack
     md5 = pack_obj.md5
 
     if not (pack or md5):
         logger.debug("没有包")
         return
-    # 获取升级包名
-    pack_pattern = re.search(r'^.*/(.*)$', pack)
-    md5_pattern = re.search(r'^.*/(.*)$', md5)
 
-    if not (pack_pattern or md5_pattern):
-        logger.debug("已经上传")
-        return
-    pack_name = re.search(r'^.*/(.*)$', pack).group(1)
-    md5_name = re.search(r'^.*/(.*)$', md5).group(1)
+    pack_name = urlsplit(pack).path[1:]
+    md5_name = urlsplit(md5).path[1:]
+    # 上传文件到oss
+    oss_obj = LocalOSS(settings.BUCKET_NAME)
+
+    # 校验文件是否在oss中存在
+    pack_exists = oss_obj.obj_exists(pack_name,)
+    if pack_exists:
+        logger.debug("{} is exists".format(pack_name))
+        return change_domain(pack_obj, pack_name, md5_name)
+    md5_exists = oss_obj.obj_exists(md5_name)
+    if md5_exists:
+        logger.debug("{} is exists".format(md5_name))
+        return change_domain(pack_obj, pack_name, md5_name)
 
     # 根据url请求包内容
     pack_res = requests.get(pack)
     md5_res = requests.get(md5)
     logger.debug("{}下载完成".format(pack_name))
-    logger.debug("{}下载完成".format(md5_name))
+    logger.debug("{}下载完成".format(pack_name))
 
-    # 上传oss
-    from utils.oss import put_alios
-    put_alios(pack_name, pack_res.content)
-    put_alios(md5_name, md5_res.content)
+    result1 = oss_obj.put_object(pack_name, pack_res.content)
+    result2 = oss_obj.put_object(md5_name, md5_res.content)
+
+    if not result1:
+        logger.error("{}上传失败".format(pack_name))
+        return
+    if not result2:
+        logger.error("{}上传失败".format(md5_name))
+        return
+
     logger.debug("{}上传完成".format(pack_name))
     logger.debug("{}上传完成".format(md5_name))
 
-    # 修改域名
-    try:
-        pack_obj.pack = settings.DOWNLOAD_URL_PRE + pack_name
-        pack_obj.md5 = settings.DOWNLOAD_URL_PRE + md5_name
-        pack_obj.save()
-    except Exception as e:
-        return
+    return change_domain(pack_obj, pack_name, md5_name)
 
 
 def upload_pack(request):
+    from general_user.models import Package
     pack_objs = Package.objects.all()
-    pool = Pool(4)
+    pool = Pool(5)
 
-    results2 = pool.map(upload, pack_objs)
+    result = pool.map(_upload, pack_objs)
     pool.close()
     pool.join()
 
-    return JsonResponse({"code": CODE.OK, "msg":"修改成功"})
+    return JsonResponse({"code": CODE.OK, "msg": "修改成功"})
 
+
+def upload_pack_test(request):
+    global IS_TEST
+    IS_TEST = True
+    pack_objs = Package.objects.filter(pid=1)
+    pool = Pool(5)
+
+    result = pool.map(_upload, pack_objs)
+
+    pool.close()
+    pool.join()
+    return JsonResponse({"code": CODE.OK, "msg": "修改成功"})
 
 
 

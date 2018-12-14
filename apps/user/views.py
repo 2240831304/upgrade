@@ -62,7 +62,7 @@ class LogoutView(View):
     @method_decorator(login_required)
     def get(self, request):
         logout(request)
-        return redirect(reverse("user:login"))
+        return redirect(reverse("userview:login"))
 
 
 

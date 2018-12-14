@@ -103,6 +103,7 @@ INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID)
 INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID) VALUES ('4.0', 'http://e.obook.com.cn/szdownloadtest/4.0epd86g44.img', 'http://e.obook.com.cn/szdownloadtest/4.0epd86g44.img.md5', 'epd86g', 44);
 INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID) VALUES ('5.0', 'http://e.obook.com.cn/szdownloadtest/5.0epd86g44.img', 'http://e.obook.com.cn/szdownloadtest/5.0epd86g44.img.md5', 'epd86g', 44);
 INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID) VALUES ('6.0', 'http://e.obook.com.cn/szdownloadtest/6.0epd86g44.img', 'http://e.obook.com.cn/szdownloadtest/6.0epd86g44.img.md5', 'epd86g', 44);
+INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID) VALUES ('6.0', 'http://e.obook.com.cn/szdownloadtest/6.0epd86l_white45.img', 'http://e.obook.com.cn/szdownloadtest/6.0epd86l_white45.img.md5', 'epd86l_white', 45);
 INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID) VALUES ('6.0', '', '', 'epd888a', 36);
 INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID) VALUES ('4.0', '', '', 'epd888a', 36);
 INSERT INTO sznewupdate_test.dbo.Packagelist (baseversion, url, Md5, Model, PID) VALUES ('5.0', 'http://e.obook.com.cn/szdownloadtest/5.0epd86g40.img', 'http://e.obook.com.cn/szdownloadtest/5.0epd86g40.img.md5', 'epd86g', 40);

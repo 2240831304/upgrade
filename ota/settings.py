@@ -221,19 +221,24 @@ AUTH_USER_MODEL = 'user.User'
 
 LOGIN_URL = '/user/login'
 
+
 # oss子用户配置
 ACCESS_KEY_ID = 'LTAI4qCrfAcJ56gg'
 ACCESS_KEY_SECRET = 'PSHYEjut4Lr2HiGngiOwgdV3tfVVVR'
 END_POINT = "oss-cn-shenzhen.aliyuncs.com"
 PREFIX_URL = 'http://'
+BUCKET_NAME = "szpackages"
+DOWNLOAD_URL_PRE = 'http://pack.obook.com.cn/'
+# 操作日志记录目录,已项目文件夹开始(ota)为根目录
+LOG_FILE_PATH = "utils/logs/oss.log"
 # 测试人员使用
-TEST_BUCKET_NAME = "sznewupdatetest"
-TEST_DOWNLOAD_URL_PRE = 'http://pack.obook.com.cn/szdownloadtest/'
+TEST_OBJECT_KEY = 'szdownloadtest/'
 
 # 用户使用
-BUCKET_NAME = 'sznewupdate'
-DOWNLOAD_URL_PRE = 'http://pack.obook.com.cn/szdownload/'
+OBJECT_KEY = 'szdownload/'
 
+
+# media目录配置
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

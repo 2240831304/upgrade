@@ -15,18 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from package.views import get_package_test, upload_pack
+from package.views import get_package_test, upload_pack, upload_pack_test
 from general_user.views import get_package
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', include('user.urls', namespace='user')),
+    path('user/', include('user.urls', namespace='userview')),
     path('pack/', include('package.urls', namespace='pack')),
     path('faq/', include('faq.urls', namespace='faq')),
     path('tinymce/', include('tinymce.urls')),
     path('pack_test', get_package_test),
     path('pack', get_package),
-    path('upload', upload_pack),
+    # 将原有的包文件同步到oss中
+    path('upload_pack', upload_pack),
+    path('upload_pack_test', upload_pack_test),
+    # 任何其他路径都访问登录页面
     path('', include('user.urls')),
 ]

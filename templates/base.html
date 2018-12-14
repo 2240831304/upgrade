@@ -33,7 +33,7 @@
                 <div class="login fr">
                     {% if request.user.is_authenticated %}
                         欢迎您&nbsp;{{ request.user.username }}|
-                        <a id="logout" href="{% url 'user:logout' %}">注销</a>
+                        <a id="logout" href="{% url 'userview:logout' %}">注销</a>
                     {% else %}
                         <a id="login" href="#">[登录]</a>
                     {% endif %}
