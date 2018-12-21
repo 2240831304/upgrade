@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'utils.middleware.pack_upload.SWFUploadMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -149,7 +150,9 @@ STATIC_URL = '/static/'
 
 # 设置静态文件存放的物理目录
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATC_ROOT = os.path.join(BASE_DIR,'static')
+STATC_ROOT = os.path.join(BASE_DIR, 'static')
+
+TMP_UPLOAD_DIR = os.path.join(BASE_DIR, 'static/upload/tmp/')
 
 # 日志配置
 LOGGING = {

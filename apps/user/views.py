@@ -6,6 +6,7 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import authenticate, login, logout
+from django_redis import get_redis_connection
 
 from ota.response_code import CODE
 
@@ -24,7 +25,7 @@ class LoginView(View):
         password = request.POST.get('passwd')
 
         # 设置session过期时间
-        request.session.set_expiry(2*60*60)
+        request.session.set_expiry(0)
 
         # 校检参数完整性
         if not all([username, password]):

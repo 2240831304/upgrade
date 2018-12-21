@@ -242,6 +242,9 @@ def pack_translate():
         old_str = r", 45\);"
         new_str = ", 38, 0);"
         content = re.sub(old_str, new_str, content)
+        old_str = r", 46\);"
+        new_str = ", 39, 0);"
+        content = re.sub(old_str, new_str, content)
 
         pack_str += content
 
@@ -249,7 +252,7 @@ def pack_translate():
         f.write(pack_str)
 
 if __name__ == '__main__':
-    input('提示:在数据库中将rversion的状态1改成2')
+    input('提示:在数据库中将rversion的状态由1改成2')
     reader_translate()
     rv_translate()
     pack_translate()

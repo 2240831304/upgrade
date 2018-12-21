@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/apps/package/views.py" line="532" mnemonic="0" />
+    <bookmark url="file://$PROJECT_DIR$/apps/package/views.py" line="608" mnemonic="0" />
     <bookmark url="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py" line="235" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6e283b8-24fa-42a2-934e-c353e321d3c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_reader.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/DBMigrate/userdb/sznewupdate_dbo_PackageUpdate.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tmp/DBMigrate/userdb/sznewupdate_dbo_Packagelist.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/uploadify-cancel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/uploadify.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/uploadifive.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/uploadify.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.uploadifive.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.uploadify.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/common_func/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/middleware/pack_upload.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/package.sql" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/reader.sql" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/rversion.sql" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/translate.py" afterPath="$PROJECT_DIR$/tmp/DBMigrate/userdb/translate.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/DBMigrate/userdb/package.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tmp/DBMigrate/userdb/rversion.sql" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/func.py" afterPath="$PROJECT_DIR$/utils/common_func/package.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/general_user/models.py" afterPath="$PROJECT_DIR$/apps/general_user/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/general_user/views.py" afterPath="$PROJECT_DIR$/apps/general_user/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/package/signals/handlers.py" afterPath="$PROJECT_DIR$/apps/package/signals/handlers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/package/urls.py" afterPath="$PROJECT_DIR$/apps/package/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/package/views.py" afterPath="$PROJECT_DIR$/apps/package/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/user/urls.py" afterPath="$PROJECT_DIR$/apps/user/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/user/views.py" afterPath="$PROJECT_DIR$/apps/user/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ota/settings.py" afterPath="$PROJECT_DIR$/ota/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ota/urls.py" afterPath="$PROJECT_DIR$/ota/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/pack.css" afterPath="$PROJECT_DIR$/static/css/pack.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/packages.css" afterPath="$PROJECT_DIR$/static/css/packages.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/reset.css" afterPath="$PROJECT_DIR$/static/css/reset.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/index.js" afterPath="$PROJECT_DIR$/static/js/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/packadd.js" afterPath="$PROJECT_DIR$/static/js/packadd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/packedit.js" afterPath="$PROJECT_DIR$/static/js/packedit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/faq.sql" afterPath="$PROJECT_DIR$/tmp/DBMigrate/testdb/faq.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/packadd.html" afterPath="$PROJECT_DIR$/templates/packadd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/packedit.html" afterPath="$PROJECT_DIR$/templates/packedit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_PackageUpdate.sql" afterPath="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_PackageUpdate.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_Packagelist.sql" afterPath="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_Packagelist.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py" afterPath="$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/DBMigrate/userdb/translate.py" afterPath="$PROJECT_DIR$/tmp/DBMigrate/userdb/translate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/oss.py" afterPath="$PROJECT_DIR$/utils/oss.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,9 +51,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ota$oss.coverage" NAME="oss Coverage Results" MODIFIED="1544686296489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/ota$manage.coverage" NAME="manage Coverage Results" MODIFIED="1544698239673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ota$translate.coverage" NAME="translate Coverage Results" MODIFIED="1544604579558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp/DBMigrate/userdb" />
-    <SUITE FILE_PATH="coverage/ota$test_translate.coverage" NAME="test_translate Coverage Results" MODIFIED="1544601783785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp/DBMigrate/testdb" />
+    <SUITE FILE_PATH="coverage/ota$manage.coverage" NAME="manage Coverage Results" MODIFIED="1545362524272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ota$translate.coverage" NAME="translate Coverage Results" MODIFIED="1545299949453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp/DBMigrate/userdb" />
+    <SUITE FILE_PATH="coverage/ota$test_translate.coverage" NAME="test_translate Coverage Results" MODIFIED="1545300591891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp/DBMigrate/testdb" />
     <SUITE FILE_PATH="coverage/ota$Unittests_in_test_translate_py.coverage" NAME="Unittests in test_translate.py Coverage Results" MODIFIED="1544601594890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tmp/DBMigrate/testdb" />
   </component>
   <component name="DatabaseView">
@@ -82,93 +94,7 @@
         <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate_test@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate_test" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="rversion" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate_test@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate_test" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="package" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
         <option name="myItemId" value="sznewupdate@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="rversion" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="package" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sznewupdate" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -178,47 +104,226 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="sznewupdate.rversion" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/d2b7aa2f/449ae19b-2550-4d89-b8ca-adde9dffd428/sznewupdate.rversion">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true">
-                <filter text="id=24" />
-                <filter text="id=15" />
-              </filtering>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/package/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="490" column="20" lean-forward="false" selection-start-line="490" selection-start-column="20" selection-end-line="490" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#754#805#0" expanded="false" />
+                <element signature="e#848#1126#0" expanded="false" />
+                <element signature="e#1156#2314#0" expanded="false" />
+                <element signature="e#1227#2314#0" expanded="false" />
+                <element signature="e#1288#1664#0" expanded="false" />
+                <element signature="e#1746#2247#0" expanded="false" />
+                <element signature="e#1842#2214#0" expanded="false" />
+                <element signature="e#2346#3962#0" expanded="false" />
+                <element signature="e#2410#2770#0" expanded="false" />
+                <element signature="e#2588#2733#0" expanded="false" />
+                <element signature="e#2669#2723#0" expanded="false" />
+                <element signature="e#2841#3962#0" expanded="false" />
+                <element signature="e#2994#3131#0" expanded="false" />
+                <element signature="e#3004#3090#0" expanded="false" />
+                <element signature="e#3260#3403#0" expanded="false" />
+                <element signature="e#3270#3362#0" expanded="false" />
+                <element signature="e#3445#3595#0" expanded="false" />
+                <element signature="e#3639#3839#0" expanded="false" />
+                <element signature="e#3717#3798#0" expanded="false" />
+                <element signature="e#3859#3925#0" expanded="false" />
+                <element signature="e#4420#4556#0" expanded="false" />
+                <element signature="e#4430#4515#0" expanded="false" />
+                <element signature="e#4566#4591#0" expanded="false" />
+                <element signature="e#4726#4864#0" expanded="false" />
+                <element signature="e#4736#4823#0" expanded="false" />
+                <element signature="e#5154#5315#0" expanded="false" />
+                <element signature="e#5164#5270#0" expanded="false" />
+                <element signature="e#5517#5681#0" expanded="false" />
+                <element signature="e#5527#5636#0" expanded="false" />
+                <element signature="e#5770#5933#0" expanded="false" />
+                <element signature="e#5780#5888#0" expanded="false" />
+                <element signature="e#5947#6004#0" expanded="false" />
+                <element signature="e#6074#6224#0" expanded="false" />
+                <element signature="e#6343#7126#0" expanded="false" />
+                <element signature="e#6725#7126#0" expanded="false" />
+                <element signature="e#7178#7407#0" expanded="false" />
+                <element signature="e#7269#7362#0" expanded="false" />
+                <element signature="e#7434#8071#0" expanded="false" />
+                <element signature="e#7472#7790#0" expanded="false" />
+                <element signature="e#7842#8071#0" expanded="false" />
+                <element signature="e#7933#8026#0" expanded="false" />
+                <element signature="e#8091#8157#0" expanded="false" />
+                <element signature="e#8232#11008#0" expanded="false" />
+                <element signature="e#8309#8986#0" expanded="false" />
+                <element signature="e#8414#8550#0" expanded="false" />
+                <element signature="e#8424#8509#0" expanded="false" />
+                <element signature="e#8851#8929#0" expanded="false" />
+                <element signature="e#9063#11008#0" expanded="false" />
+                <element signature="e#9407#9502#0" expanded="false" />
+                <element signature="e#9417#9502#0" expanded="false" />
+                <element signature="e#9659#9804#0" expanded="false" />
+                <element signature="e#9669#9763#0" expanded="false" />
+                <element signature="e#9831#10090#0" expanded="false" />
+                <element signature="e#10134#10346#0" expanded="false" />
+                <element signature="e#10221#10305#0" expanded="false" />
+                <element signature="e#10366#10509#0" expanded="false" />
+                <element signature="e#10444#10499#0" expanded="false" />
+                <element signature="e#10556#10570#0" expanded="false" />
+                <element signature="e#11047#11602#0" expanded="false" />
+                <element signature="e#11152#11599#0" expanded="false" />
+                <element signature="e#11204#11340#0" expanded="false" />
+                <element signature="e#11214#11299#0" expanded="false" />
+                <element signature="e#11414#11562#0" expanded="false" />
+                <element signature="e#11495#11552#0" expanded="false" />
+                <element signature="e#11644#12720#0" expanded="false" />
+                <element signature="e#11708#12720#0" expanded="false" />
+                <element signature="e#11708#11742#1" expanded="false" />
+                <element signature="e#11893#12030#0" expanded="false" />
+                <element signature="e#11903#11989#0" expanded="false" />
+                <element signature="e#12077#12329#0" expanded="false" />
+                <element signature="e#12373#12576#0" expanded="false" />
+                <element signature="e#12452#12535#0" expanded="false" />
+                <element signature="e#12616#12682#0" expanded="false" />
+                <element signature="e#12760#13185#0" expanded="false" />
+                <element signature="e#12841#13185#0" expanded="false" />
+                <element signature="e#13082#13128#0" expanded="false" />
+                <element signature="e#13218#13605#0" expanded="false" />
+                <element signature="e#13293#13605#0" expanded="false" />
+                <element signature="e#13477#13547#0" expanded="false" />
+                <element signature="e#15423#15551#0" expanded="false" />
+                <element signature="e#15460#15495#0" expanded="false" />
+                <element signature="e#16004#16142#0" expanded="false" />
+                <element signature="e#16014#16101#0" expanded="false" />
+                <element signature="e#16389#16537#0" expanded="false" />
+                <element signature="e#16399#16496#0" expanded="false" />
+                <element signature="e#17125#17264#0" expanded="false" />
+                <element signature="e#17135#17223#0" expanded="false" />
+                <element signature="e#17526#17744#0" expanded="false" />
+                <element signature="e#17595#17703#0" expanded="false" />
+                <element signature="e#17786#18004#0" expanded="false" />
+                <element signature="e#17854#17963#0" expanded="false" />
+                <element signature="e#18182#18367#0" expanded="false" />
+                <element signature="e#18245#18326#0" expanded="false" />
+                <element signature="e#18387#18453#0" expanded="false" />
+                <element signature="e#18526#26327#0" expanded="false" />
+                <element signature="e#18610#18811#0" expanded="false" />
+                <element signature="e#18708#18753#0" expanded="false" />
+                <element signature="e#18896#25507#0" expanded="false" />
+                <element signature="e#19239#19374#0" expanded="false" />
+                <element signature="e#19249#19333#0" expanded="false" />
+                <element signature="e#20201#23229#0" expanded="false" />
+                <element signature="e#20262#21808#0" expanded="false" />
+                <element signature="e#20451#20688#0" expanded="false" />
+                <element signature="e#20526#20639#0" expanded="false" />
+                <element signature="e#20743#20980#0" expanded="false" />
+                <element signature="e#20818#20931#0" expanded="false" />
+                <element signature="e#21239#21497#0" expanded="false" />
+                <element signature="e#21316#21448#0" expanded="false" />
+                <element signature="e#21554#21808#0" expanded="false" />
+                <element signature="e#21629#21759#0" expanded="false" />
+                <element signature="e#21843#22741#0" expanded="false" />
+                <element signature="e#22114#22393#0" expanded="false" />
+                <element signature="e#22211#22344#0" expanded="false" />
+                <element signature="e#22451#22728#0" expanded="false" />
+                <element signature="e#22546#22679#0" expanded="false" />
+                <element signature="e#22782#22972#0" expanded="false" />
+                <element signature="e#23024#23229#0" expanded="false" />
+                <element signature="e#23091#23184#0" expanded="false" />
+                <element signature="e#23256#25289#0" expanded="false" />
+                <element signature="e#23308#25289#0" expanded="false" />
+                <element signature="e#23497#23734#0" expanded="false" />
+                <element signature="e#23572#23685#0" expanded="false" />
+                <element signature="e#23789#24026#0" expanded="false" />
+                <element signature="e#23864#23977#0" expanded="false" />
+                <element signature="e#24284#24542#0" expanded="false" />
+                <element signature="e#24361#24493#0" expanded="false" />
+                <element signature="e#24599#24853#0" expanded="false" />
+                <element signature="e#24674#24804#0" expanded="false" />
+                <element signature="e#24896#25004#0" expanded="false" />
+                <element signature="e#25064#25289#0" expanded="false" />
+                <element signature="e#25135#25240#0" expanded="false" />
+                <element signature="e#25308#25470#0" expanded="false" />
+                <element signature="e#25386#25460#0" expanded="false" />
+                <element signature="e#25594#26327#0" expanded="false" />
+                <element signature="e#25728#25862#0" expanded="false" />
+                <element signature="e#25738#25821#0" expanded="false" />
+                <element signature="e#25905#25957#0" expanded="false" />
+                <element signature="e#26001#26204#0" expanded="false" />
+                <element signature="e#26082#26163#0" expanded="false" />
+                <element signature="e#26224#26290#0" expanded="false" />
+                <element signature="e#26364#27043#0" expanded="false" />
+                <element signature="e#26428#27043#0" expanded="false" />
+                <element signature="e#26653#26746#0" expanded="false" />
+                <element signature="e#26795#27005#0" expanded="false" />
+                <element signature="e#26818#27004#0" expanded="false" />
+                <element signature="e#27047#27266#1" expanded="false" />
+                <element signature="e#27365#27414#0" expanded="false" />
+                <element signature="e#27485#28784#0" expanded="false" />
+                <element signature="e#27613#27678#0" expanded="false" />
+                <element signature="e#27706#28157#0" expanded="false" />
+                <element signature="e#27777#28047#0" expanded="false" />
+                <element signature="e#28091#28157#0" expanded="false" />
+                <element signature="e#28322#28382#0" expanded="false" />
+                <element signature="e#28444#28670#0" expanded="false" />
+                <element signature="e#28706#28768#0" expanded="false" />
+                <element signature="e#28828#29216#0" expanded="false" />
+                <element signature="e#28907#28941#0" expanded="false" />
+                <element signature="e#29249#29480#0" expanded="false" />
+                <element signature="e#29518#29705#0" expanded="false" />
+                <marker date="1545362524126" expanded="false" signature="1289:1662" ph="select * fro... rversion" />
+                <marker date="1545362524126" expanded="false" signature="1366:1437" ph="select reade... rversion" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sznewupdate.package" pinned="false" current-in-tab="true">
-        <entry file="dbDummy://dbtable:/d2b7aa2f/449ae19b-2550-4d89-b8ca-adde9dffd428/sznewupdate.package">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+      <file leaf-file-name="packadd.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/packadd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="686">
+              <caret line="56" column="33" lean-forward="true" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" text="model='dangdang86d_flaxp'">
-                <filter text="model='dangdang86d_flaxp'" />
-                <filter text="pid=14 AND base_version=1.0" />
-                <filter text="pid=7 AND base_version=1.0" />
-                <filter text="pid=7" />
-                <filter text="pid=24" />
-                <filter text="pid=15" />
-                <filter text="pid=2" />
-                <filter text="model='dangdang86d_flax'" />
-                <filter text="model='dangdang86d'" />
-                <filter text="pack='http://pack.obook.com.cn/szdownload/1.0epd86g.img'" />
-              </filtering>
+        </entry>
+      </file>
+      <file leaf-file-name="packadd.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/packadd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="39" column="58" lean-forward="false" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="packedit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/packedit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="46" column="52" lean-forward="true" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="packedit.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/packedit.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="32" column="71" lean-forward="false" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ota/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="154" column="30" lean-forward="false" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -234,42 +339,46 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pack_pattern</find>
-      <find>sznewupdate_test</find>
-      <find>del_alios</find>
-      <find>put_alios</find>
-      <find>del_objects</find>
-      <find>re</find>
-      <find>re\.</find>
-      <find>oss</find>
-      <find>LocalOSS</find>
-      <find>sznewupdate.dbo</find>
-      <find>send</find>
-      <find>sznewupdate</find>
-      <find>86fplus</find>
-      <find>TEST_BUCKET</find>
-      <find>TEST</find>
-      <find>oss_obj</find>
+      <find>state=2</find>
+      <find>state=1</find>
+      <find>0</find>
+      <find>1</find>
+      <find>STATE.DELETE</find>
       <find>put_object</find>
-      <find>u</find>
-      <find>user</find>
-      <find>user:</find>
-      <find>user:l</find>
-      <find>user:login</find>
-      <find>user:logi</find>
-      <find>user:lo</find>
-      <find>user:log</find>
-      <find>user:logo</find>
-      <find>user:logou</find>
-      <find>user:logout</find>
-      <find>空包</find>
-      <find>history</find>
+      <find>pack_upload</find>
+      <find>alert</find>
+      <find>FormData</find>
+      <find>TMP_UPLOAD_DIR</find>
+      <find>obj_key</find>
+      <find>RET</find>
+      <find>p</find>
+      <find>pr</find>
+      <find>pri</find>
+      <find>prin</find>
+      <find>print</find>
+      <find>oss</find>
+      <find>change_domain</find>
+      <find>IS_TEST</find>
+      <find>86F</find>
+      <find>obj_exists</find>
+      <find>wi</find>
+      <find>w</find>
+      <find>wh</find>
+      <find>whi</find>
+      <find>whil</find>
+      <find>while</find>
+      <find>while</find>
+      <find>while 1</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>sznewupdate</replace>
       <replace>put_object</replace>
       <replace>sznewupdate_test</replace>
+      <replace>STATE.UPDATE</replace>
+      <replace>state=STATE.ADD</replace>
+      <replace>STATE['DELETE']</replace>
+      <replace>TMP_UPLOAD_DIR</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -278,12 +387,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ota/wsgi.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/xml/upgrade.xml" />
         <option value="$PROJECT_DIR$/templates/rversion.html" />
         <option value="$PROJECT_DIR$/static/js/func.js" />
-        <option value="$PROJECT_DIR$/static/js/index.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ota/database_router.py" />
         <option value="$PROJECT_DIR$/tmp/DBMigrate/translate.py" />
@@ -291,35 +397,47 @@
         <option value="$PROJECT_DIR$/tmp/DBMigrate/package.sql" />
         <option value="$PROJECT_DIR$/tmp/DBMigrate/reader.sql" />
         <option value="$PROJECT_DIR$/tmp/DBMigrate/rversion.sql" />
-        <option value="$PROJECT_DIR$/utils/func.py" />
         <option value="$PROJECT_DIR$/apps/general_user/urls.py" />
         <option value="$PROJECT_DIR$/apps/general_user/apps.py" />
         <option value="$PROJECT_DIR$/apps/package/apps.py" />
         <option value="$PROJECT_DIR$/apps/package/signals/signals.py" />
         <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/translate.py" />
-        <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_PackageUpdate.sql" />
-        <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_reader.sql" />
         <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/faq.sql" />
         <option value="$PROJECT_DIR$/tmp/DBMigrate/userdb/package.sql" />
         <option value="$PROJECT_DIR$/apps/general_user/models.py" />
-        <option value="$PROJECT_DIR$/tmp/DBMigrate/userdb/sznewupdate_dbo_PackageUpdate.sql" />
-        <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py" />
         <option value="$PROJECT_DIR$/apps/general_user/views.py" />
-        <option value="$PROJECT_DIR$/apps/package/signals/handlers.py" />
         <option value="$PROJECT_DIR$/log.log" />
-        <option value="$PROJECT_DIR$/ota/settings.py" />
-        <option value="$PROJECT_DIR$/apps/user/views.py" />
         <option value="$PROJECT_DIR$/apps/user/urls.py" />
         <option value="$PROJECT_DIR$/ota/urls.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/static/css/packages.css" />
         <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/apps/package/signals/handlers.py" />
+        <option value="$PROJECT_DIR$/static/js/index.js" />
+        <option value="$PROJECT_DIR$/static/css/uploadifive.css" />
+        <option value="$PROJECT_DIR$/static/css/pack.css" />
+        <option value="$PROJECT_DIR$/apps/package/urls.py" />
+        <option value="$PROJECT_DIR$/utils/func.py" />
+        <option value="$PROJECT_DIR$/utils/middleware/pack_upload.py" />
+        <option value="$PROJECT_DIR$/static/css/reset.css" />
+        <option value="$PROJECT_DIR$/templates/packedit.html" />
+        <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_reader.sql" />
+        <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_PackageUpdate.sql" />
+        <option value="$PROJECT_DIR$/tmp/DBMigrate/userdb/sznewupdate_dbo_PackageUpdate.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/449ae19b-2550-4d89-b8ca-adde9dffd428/console.sql" />
+        <option value="$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py" />
+        <option value="$PROJECT_DIR$/tmp/DBMigrate/userdb/translate.py" />
+        <option value="$PROJECT_DIR$/utils/common_func/package.py" />
         <option value="$PROJECT_DIR$/utils/logs/package.log" />
         <option value="$PROJECT_DIR$/utils/logs/oss.log" />
-        <option value="$PROJECT_DIR$/utils/oss.py" />
-        <option value="$PROJECT_DIR$/apps/package/views.py" />
-        <option value="$PROJECT_DIR$/tmp/DBMigrate/userdb/translate.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/449ae19b-2550-4d89-b8ca-adde9dffd428/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3eceaa17-1740-435a-a2fb-b295718da884/console.sql" />
+        <option value="$PROJECT_DIR$/static/js/packadd.js" />
+        <option value="$PROJECT_DIR$/apps/user/views.py" />
+        <option value="$PROJECT_DIR$/templates/packadd.html" />
+        <option value="$PROJECT_DIR$/utils/oss.py" />
+        <option value="$PROJECT_DIR$/ota/settings.py" />
+        <option value="$PROJECT_DIR$/apps/package/views.py" />
+        <option value="$PROJECT_DIR$/static/js/packedit.js" />
       </list>
     </option>
   </component>
@@ -330,10 +448,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="1084" />
+    <option name="x" value="64" />
+    <option name="y" value="-11" />
+    <option name="width" value="1857" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -350,7 +468,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -406,47 +523,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tmp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DBMigrate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="userdb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tmp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DBMigrate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ota" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ota" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -492,20 +591,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="apps" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -542,162 +627,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="signals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="package" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="general_user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="general_user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ota" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/document/空中升级/now_db/sznewupdate" />
+    <property name="last_opened_file_path" value="$USER_HOME$/document/空中升级/now_db/sznewupdate_test" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="SQL Server (Microsoft)&#10;MySQL" />
@@ -707,15 +647,19 @@
     <property name="node.js.selected.package.eslint" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tmp/DBMigrate/userdb" />
-      <recent name="$PROJECT_DIR$/tmp/DBMigrate/testdb" />
-      <recent name="$PROJECT_DIR$/apps" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tmp/DBMigrate/testdb" />
       <recent name="$PROJECT_DIR$/tmp/DBMigrate/userdb" />
-      <recent name="$PROJECT_DIR$/apps/general_user" />
+      <recent name="$PROJECT_DIR$/tmp/DBMigrate/testdb" />
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/static/img" />
+      <recent name="$PROJECT_DIR$/static/css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils/common_func" />
+      <recent name="$PROJECT_DIR$/static/upload/tmp" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/tmp/DBMigrate/userdb" />
+      <recent name="$PROJECT_DIR$/tmp/DBMigrate/testdb" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1011,8 +955,8 @@
     <recent_temporary>
       <list size="3">
         <item index="0" class="java.lang.String" itemvalue="Python.manage" />
-        <item index="1" class="java.lang.String" itemvalue="Python.oss" />
-        <item index="2" class="java.lang.String" itemvalue="Python.translate" />
+        <item index="1" class="java.lang.String" itemvalue="Python.translate" />
+        <item index="2" class="java.lang.String" itemvalue="Python.oss" />
       </list>
     </recent_temporary>
   </component>
@@ -1041,101 +985,87 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35691988" sideWeight="0.5019305" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3483387" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6274714" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20683949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17484832" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35691988" sideWeight="0.4980695" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27523443" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19360177" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39978564" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39958376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984003" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6274714" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34755462" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6274714" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16105902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17484832" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39978564" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984003" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>656</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>655</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>653</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>659</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>681</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>680</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>685</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>684</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>704</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>691</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>690</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/package/views.py</url>
-          <line>703</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1146,258 +1076,334 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="21" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/d2b7aa2f/d8d3b901-ecf8-4c96-a42f-5cfe05e4a543/sznewupdate_test.dbo.reader" />
-    <entry file="dbDummy://dbtable:/d2b7aa2f/38b28409-3ef1-4530-ab8f-0ac10138e966/sznewupdate.dbo.Packagelist" />
-    <entry file="dbDummy://dbtable:/d2b7aa2f/38b28409-3ef1-4530-ab8f-0ac10138e966/sznewupdate.dbo.PackageUpdate" />
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_reader.sql">
+    <entry file="file://$USER_HOME$/.virtualenvs/guowen/lib/python3.5/site-packages/django/core/handlers/exception.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="55" lean-forward="true" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="58" />
+        <state relative-caret-position="378">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/reader.sql">
+    <entry file="file://$USER_HOME$/.virtualenvs/guowen/lib/python3.5/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="88" lean-forward="true" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="88" />
+        <state relative-caret-position="182">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/faq.sql">
+    <entry file="file://$USER_HOME$/.virtualenvs/guowen/lib/python3.5/site-packages/django/core/handlers/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/guowen/lib/python3.5/site-packages/django/contrib/staticfiles/handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/uploadifive.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/decorator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/uploadify.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ota/database_router.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/package/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="13" column="84" lean-forward="true" selection-start-line="13" selection-start-column="84" selection-end-line="13" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery.uploadify.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="15" column="30605" lean-forward="false" selection-start-line="15" selection-start-column="30605" selection-end-line="15" selection-end-column="30605" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/upload/tmp/temp.img.md5" />
+    <entry file="file://$PROJECT_DIR$/static/upload/tmp/temp.img" />
+    <entry file="file:///usr/lib/python3.5/uuid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="594" column="22" lean-forward="true" selection-start-line="594" selection-start-column="22" selection-end-line="594" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/faqadd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-432">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/package/signals/handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1634">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="191" column="31" lean-forward="false" selection-start-line="191" selection-start-column="31" selection-end-line="191" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/middleware/pack_upload.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <caret line="11" column="68" lean-forward="false" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_Packagelist.sql">
+    <entry file="file://$PROJECT_DIR$/static/css/pack.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/reset.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="78" lean-forward="false" selection-start-line="0" selection-start-column="78" selection-end-line="0" selection-end-column="78" />
+          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/package.sql">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4b424c25-d061-485f-8efe-4cf8aa58132c/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="106" lean-forward="true" selection-start-line="0" selection-start-column="101" selection-end-line="0" selection-end-column="106" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/faq/models.py">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/244693e9-247f-42df-bb45-5071a63c5154/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/package/models.py">
+    <entry file="dbDummy://dbtable:/d2b7aa2f/4b424c25-d061-485f-8efe-4cf8aa58132c/sznewupdate_test.dbo.reader" />
+    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_reader.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="50" column="85" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d2b7aa2f/3eceaa17-1740-435a-a2fb-b295718da884/sznewupdate_test.reader">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/general_user/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="20" column="63" lean-forward="true" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/userdb/rversion.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="149" lean-forward="false" selection-start-line="8" selection-start-column="149" selection-end-line="8" selection-end-column="149" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/userdb/package.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="18" column="172" lean-forward="false" selection-start-line="18" selection-start-column="172" selection-end-line="18" selection-end-column="172" />
+        <state relative-caret-position="198">
+          <caret line="11" column="80" lean-forward="false" selection-start-line="11" selection-start-column="80" selection-end-line="11" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/userdb/sznewupdate_dbo_Packagelist.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="230" lean-forward="false" selection-start-line="3" selection-start-column="220" selection-end-line="3" selection-end-column="230" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/995e3888-19fe-4c01-986a-214bf5bd0f01/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-1082">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d2b7aa2f/995e3888-19fe-4c01-986a-214bf5bd0f01/sznewupdate.dbo.Packagelist" />
-    <entry file="dbDummy://dbtable:/d2b7aa2f/995e3888-19fe-4c01-986a-214bf5bd0f01/sznewupdate.dbo.PackageUpdate" />
     <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/userdb/sznewupdate_dbo_PackageUpdate.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="106" lean-forward="false" selection-start-line="6" selection-start-column="106" selection-end-line="6" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="251" column="37" lean-forward="true" selection-start-line="251" selection-start-column="37" selection-end-line="251" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="432">
+          <caret line="24" column="140" lean-forward="false" selection-start-line="24" selection-start-column="140" selection-end-line="24" selection-end-column="140" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_PackageUpdate.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="93" lean-forward="true" selection-start-line="18" selection-start-column="93" selection-end-line="18" selection-end-column="93" />
+        <state relative-caret-position="198">
+          <caret line="11" column="137" lean-forward="false" selection-start-line="11" selection-start-column="137" selection-end-line="11" selection-end-column="137" />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d2b7aa2f/449ae19b-2550-4d89-b8ca-adde9dffd428/sznewupdate.django_migrations">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
+    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/sznewupdate_test_dbo_Packagelist.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1288">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d2b7aa2f/449ae19b-2550-4d89-b8ca-adde9dffd428/sznewupdate.package">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/general_user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/multiprocessing/dummy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="114" column="4" lean-forward="false" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log.log" />
-    <entry file="file://$PROJECT_DIR$/apps/package/signals/handlers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="51" column="28" lean-forward="false" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/faq/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ota/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="219" column="23" lean-forward="false" selection-start-line="219" selection-start-column="23" selection-end-line="219" selection-end-column="23" />
+    <entry file="dbDummy://dbtable:/d2b7aa2f/449ae19b-2550-4d89-b8ca-adde9dffd428/sznewupdate.rversion">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/user/views.py">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/449ae19b-2550-4d89-b8ca-adde9dffd428/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="64" column="41" lean-forward="false" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        <state relative-caret-position="0">
+          <caret line="0" column="41" lean-forward="true" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/user/urls.py">
+    <entry file="dbDummy://dbtable:/d2b7aa2f/3eceaa17-1740-435a-a2fb-b295718da884/sznewupdate_test.rversion">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/userdb/translate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="743">
+          <caret line="189" column="61" lean-forward="false" selection-start-line="189" selection-start-column="61" selection-end-line="189" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common_func/package.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+            <element signature="e#217#544#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ota/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        <state relative-caret-position="391">
+          <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+    <entry file="dbDummy://dbtable:/d2b7aa2f/3eceaa17-1740-435a-a2fb-b295718da884/sznewupdate_test.package">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" text="md5='2.0epd888adfsfa32.img.md5'">
+            <filter text="md5='2.0epd888adfsfa32.img.md5'" />
+          </filtering>
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3eceaa17-1740-435a-a2fb-b295718da884/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="37" column="55" lean-forward="true" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+        <state relative-caret-position="0">
+          <caret line="0" column="51" lean-forward="true" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/logs/package.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="134" lean-forward="false" selection-start-line="1" selection-start-column="130" selection-end-line="1" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ota/response_code.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="50" lean-forward="false" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/testdb/test_translate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/guowen/lib/python3.5/site-packages/redis/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1526">
+          <caret line="1406" column="8" lean-forward="false" selection-start-line="1406" selection-start-column="8" selection-end-line="1406" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
           <folding>
-            <element signature="e#1020#1026#0#HTML" expanded="false" />
+            <element signature="e#0#14#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/guowen/lib/python3.5/site-packages/oss2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2017.1/system/python_stubs/-298647732/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="714" column="6" lean-forward="false" selection-start-line="714" selection-start-column="6" selection-end-line="714" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/multiprocessing/pool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/logs/oss.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-216">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="LargeFileEditor">
@@ -1406,282 +1412,222 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/logs/package.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/oss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="76" lean-forward="false" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
-          <folding>
-            <element signature="e#24#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/package/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/history.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        <state relative-caret-position="162">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/449ae19b-2550-4d89-b8ca-adde9dffd428/console.sql">
+    <entry file="file://$PROJECT_DIR$/ota/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="74" />
+        <state relative-caret-position="288">
+          <caret line="154" column="30" lean-forward="false" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d2b7aa2f/3eceaa17-1740-435a-a2fb-b295718da884/sznewupdate_test.package">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/templates/packadd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="39" column="58" lean-forward="false" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="pid=35">
-            <filter text="pid=35" />
-            <filter text="base_version=4.0AND model='dangdang86d'" />
-            <filter text="pack='http://e.obook.com.cn/szdownloadtest/4.0dangdang86d3.img'" />
-            <filter text="pack='http://e.obook.com.cn/szdownloadtest/2.0dangdang86d3.img'" />
-            <filter text="pack='http://e.obook.com.cn/szdownloadtest/2.0dangdang86d19.img'" />
-            <filter text="id=2" />
-            <filter text="pid=2" />
-            <filter text="pid=3" />
-            <filter text="pid=1" />
-            <filter text="pid=6" />
-          </filtering>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/packedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="46" column="52" lean-forward="true" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/DBMigrate/userdb/translate.py">
+    <entry file="file://$PROJECT_DIR$/static/js/packedit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="201" column="45" lean-forward="true" selection-start-line="201" selection-start-column="45" selection-end-line="201" selection-end-column="45" />
+        <state relative-caret-position="229">
+          <caret line="32" column="71" lean-forward="false" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/packadd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="56" column="33" lean-forward="true" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/package/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="610" column="46" lean-forward="true" selection-start-line="610" selection-start-column="46" selection-end-line="610" selection-end-column="46" />
+        <state relative-caret-position="275">
+          <caret line="490" column="20" lean-forward="false" selection-start-line="490" selection-start-column="20" selection-end-line="490" selection-end-column="20" />
           <folding>
-            <element signature="e#759#1023#0" expanded="false" />
-            <element signature="e#1053#2211#0" expanded="false" />
-            <element signature="e#1124#2211#0" expanded="false" />
-            <element signature="e#1185#1561#0" expanded="false" />
-            <element signature="e#1643#2144#0" expanded="false" />
-            <element signature="e#1739#2111#0" expanded="false" />
-            <element signature="e#2243#3859#0" expanded="false" />
-            <element signature="e#2307#2667#0" expanded="false" />
-            <element signature="e#2485#2630#0" expanded="false" />
-            <element signature="e#2566#2620#0" expanded="false" />
-            <element signature="e#2738#3859#0" expanded="false" />
-            <element signature="e#2891#3028#0" expanded="false" />
-            <element signature="e#2901#2987#0" expanded="false" />
-            <element signature="e#3157#3300#0" expanded="false" />
-            <element signature="e#3167#3259#0" expanded="false" />
-            <element signature="e#3342#3492#0" expanded="false" />
-            <element signature="e#3536#3736#0" expanded="false" />
-            <element signature="e#3614#3695#0" expanded="false" />
-            <element signature="e#3756#3822#0" expanded="false" />
-            <element signature="e#3895#6521#0" expanded="false" />
-            <element signature="e#3960#6521#0" expanded="false" />
-            <element signature="e#4317#4453#0" expanded="false" />
-            <element signature="e#4327#4412#0" expanded="false" />
-            <element signature="e#4463#4488#0" expanded="false" />
-            <element signature="e#4623#4761#0" expanded="false" />
-            <element signature="e#4633#4720#0" expanded="false" />
-            <element signature="e#4898#5824#0" expanded="false" />
-            <element signature="e#5052#5212#0" expanded="false" />
-            <element signature="e#5062#5167#0" expanded="false" />
-            <element signature="e#5409#5573#0" expanded="false" />
-            <element signature="e#5419#5528#0" expanded="false" />
-            <element signature="e#5651#5814#0" expanded="false" />
-            <element signature="e#5661#5769#0" expanded="false" />
-            <element signature="e#5854#6144#0" expanded="false" />
-            <element signature="e#6188#6397#0" expanded="false" />
-            <element signature="e#6275#6356#0" expanded="false" />
-            <element signature="e#6417#6483#0" expanded="false" />
-            <element signature="e#6558#9334#0" expanded="false" />
-            <element signature="e#6635#7312#0" expanded="false" />
-            <element signature="e#6740#6876#0" expanded="false" />
-            <element signature="e#6750#6835#0" expanded="false" />
-            <element signature="e#7177#7255#0" expanded="false" />
-            <element signature="e#7389#9334#0" expanded="false" />
-            <element signature="e#7733#7828#0" expanded="false" />
-            <element signature="e#7743#7828#0" expanded="false" />
-            <element signature="e#7985#8130#0" expanded="false" />
-            <element signature="e#7995#8089#0" expanded="false" />
-            <element signature="e#8157#8416#0" expanded="false" />
-            <element signature="e#8460#8672#0" expanded="false" />
-            <element signature="e#8547#8631#0" expanded="false" />
-            <element signature="e#8692#8835#0" expanded="false" />
-            <element signature="e#8770#8825#0" expanded="false" />
-            <element signature="e#8882#8896#0" expanded="false" />
-            <element signature="e#9373#9928#0" expanded="false" />
-            <element signature="e#9478#9925#0" expanded="false" />
-            <element signature="e#9530#9666#0" expanded="false" />
-            <element signature="e#9540#9625#0" expanded="false" />
-            <element signature="e#9740#9888#0" expanded="false" />
-            <element signature="e#9821#9878#0" expanded="false" />
-            <element signature="e#9970#11046#0" expanded="false" />
-            <element signature="e#10034#11046#0" expanded="false" />
-            <element signature="e#10034#10068#1" expanded="false" />
-            <element signature="e#10219#10356#0" expanded="false" />
-            <element signature="e#10229#10315#0" expanded="false" />
-            <element signature="e#10403#10655#0" expanded="false" />
-            <element signature="e#10699#10902#0" expanded="false" />
-            <element signature="e#10778#10861#0" expanded="false" />
-            <element signature="e#10942#11008#0" expanded="false" />
-            <element signature="e#11544#11920#0" expanded="false" />
-            <element signature="e#11955#14370#0" expanded="false" />
-            <element signature="e#12030#12157#0" expanded="false" />
-            <element signature="e#12067#12101#0" expanded="false" />
-            <element signature="e#12233#14370#0" expanded="false" />
-            <element signature="e#12576#12714#0" expanded="false" />
-            <element signature="e#12586#12673#0" expanded="false" />
-            <element signature="e#12948#13096#0" expanded="false" />
-            <element signature="e#12958#13055#0" expanded="false" />
-            <element signature="e#13417#13635#0" expanded="false" />
-            <element signature="e#13486#13594#0" expanded="false" />
-            <element signature="e#13673#13891#0" expanded="false" />
-            <element signature="e#13741#13850#0" expanded="false" />
-            <element signature="e#14061#14247#0" expanded="false" />
-            <element signature="e#14125#14206#0" expanded="false" />
-            <element signature="e#14267#14333#0" expanded="false" />
-            <element signature="e#14406#17930#0" expanded="false" />
-            <element signature="e#14490#14691#0" expanded="false" />
-            <element signature="e#14588#14633#0" expanded="false" />
-            <element signature="e#14776#17124#0" expanded="false" />
-            <element signature="e#15079#15214#0" expanded="false" />
-            <element signature="e#15089#15173#0" expanded="false" />
-            <element signature="e#15289#15719#0" expanded="false" />
-            <element signature="e#15310#15439#0" expanded="false" />
-            <element signature="e#15491#15719#0" expanded="false" />
-            <element signature="e#15576#15674#0" expanded="false" />
-            <element signature="e#15746#16904#0" expanded="false" />
-            <element signature="e#16114#16270#0" expanded="false" />
-            <element signature="e#16124#16225#0" expanded="false" />
-            <element signature="e#16696#16904#0" expanded="false" />
-            <element signature="e#16764#16859#0" expanded="false" />
-            <element signature="e#16924#17086#0" expanded="false" />
-            <element signature="e#17002#17076#0" expanded="false" />
-            <element signature="e#17211#17930#0" expanded="false" />
-            <element signature="e#17345#17479#0" expanded="false" />
-            <element signature="e#17355#17438#0" expanded="false" />
-            <element signature="e#17522#17560#0" expanded="false" />
-            <element signature="e#17604#17807#0" expanded="false" />
-            <element signature="e#17685#17766#0" expanded="false" />
-            <element signature="e#17827#17893#0" expanded="false" />
-            <element signature="e#18639#18858#1" expanded="false" />
-            <element signature="e#18942#18991#0" expanded="false" />
-            <element signature="e#19048#19427#0" expanded="false" />
-            <element signature="e#19072#19326#0" expanded="false" />
-            <element signature="e#19362#19424#0" expanded="false" />
-            <element signature="e#19468#20716#0" expanded="false" />
-            <element signature="e#19547#19581#0" expanded="false" />
-            <element signature="e#19819#19925#0" expanded="false" />
-            <element signature="e#19999#20104#0" expanded="false" />
-            <element signature="e#20431#20486#0" expanded="false" />
-            <element signature="e#20515#20569#0" expanded="false" />
-            <element signature="e#20749#20980#0" expanded="false" />
-            <element signature="e#21018#21251#0" expanded="false" />
-            <marker date="1544698091507" expanded="false" signature="1186:1559" ph="select * fro... rversion" />
-            <marker date="1544698091507" expanded="false" signature="1263:1334" ph="select reade... rversion" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#754#805#0" expanded="false" />
+            <element signature="e#848#1126#0" expanded="false" />
+            <element signature="e#1156#2314#0" expanded="false" />
+            <element signature="e#1227#2314#0" expanded="false" />
+            <element signature="e#1288#1664#0" expanded="false" />
+            <element signature="e#1746#2247#0" expanded="false" />
+            <element signature="e#1842#2214#0" expanded="false" />
+            <element signature="e#2346#3962#0" expanded="false" />
+            <element signature="e#2410#2770#0" expanded="false" />
+            <element signature="e#2588#2733#0" expanded="false" />
+            <element signature="e#2669#2723#0" expanded="false" />
+            <element signature="e#2841#3962#0" expanded="false" />
+            <element signature="e#2994#3131#0" expanded="false" />
+            <element signature="e#3004#3090#0" expanded="false" />
+            <element signature="e#3260#3403#0" expanded="false" />
+            <element signature="e#3270#3362#0" expanded="false" />
+            <element signature="e#3445#3595#0" expanded="false" />
+            <element signature="e#3639#3839#0" expanded="false" />
+            <element signature="e#3717#3798#0" expanded="false" />
+            <element signature="e#3859#3925#0" expanded="false" />
+            <element signature="e#4420#4556#0" expanded="false" />
+            <element signature="e#4430#4515#0" expanded="false" />
+            <element signature="e#4566#4591#0" expanded="false" />
+            <element signature="e#4726#4864#0" expanded="false" />
+            <element signature="e#4736#4823#0" expanded="false" />
+            <element signature="e#5154#5315#0" expanded="false" />
+            <element signature="e#5164#5270#0" expanded="false" />
+            <element signature="e#5517#5681#0" expanded="false" />
+            <element signature="e#5527#5636#0" expanded="false" />
+            <element signature="e#5770#5933#0" expanded="false" />
+            <element signature="e#5780#5888#0" expanded="false" />
+            <element signature="e#5947#6004#0" expanded="false" />
+            <element signature="e#6074#6224#0" expanded="false" />
+            <element signature="e#6343#7126#0" expanded="false" />
+            <element signature="e#6725#7126#0" expanded="false" />
+            <element signature="e#7178#7407#0" expanded="false" />
+            <element signature="e#7269#7362#0" expanded="false" />
+            <element signature="e#7434#8071#0" expanded="false" />
+            <element signature="e#7472#7790#0" expanded="false" />
+            <element signature="e#7842#8071#0" expanded="false" />
+            <element signature="e#7933#8026#0" expanded="false" />
+            <element signature="e#8091#8157#0" expanded="false" />
+            <element signature="e#8232#11008#0" expanded="false" />
+            <element signature="e#8309#8986#0" expanded="false" />
+            <element signature="e#8414#8550#0" expanded="false" />
+            <element signature="e#8424#8509#0" expanded="false" />
+            <element signature="e#8851#8929#0" expanded="false" />
+            <element signature="e#9063#11008#0" expanded="false" />
+            <element signature="e#9407#9502#0" expanded="false" />
+            <element signature="e#9417#9502#0" expanded="false" />
+            <element signature="e#9659#9804#0" expanded="false" />
+            <element signature="e#9669#9763#0" expanded="false" />
+            <element signature="e#9831#10090#0" expanded="false" />
+            <element signature="e#10134#10346#0" expanded="false" />
+            <element signature="e#10221#10305#0" expanded="false" />
+            <element signature="e#10366#10509#0" expanded="false" />
+            <element signature="e#10444#10499#0" expanded="false" />
+            <element signature="e#10556#10570#0" expanded="false" />
+            <element signature="e#11047#11602#0" expanded="false" />
+            <element signature="e#11152#11599#0" expanded="false" />
+            <element signature="e#11204#11340#0" expanded="false" />
+            <element signature="e#11214#11299#0" expanded="false" />
+            <element signature="e#11414#11562#0" expanded="false" />
+            <element signature="e#11495#11552#0" expanded="false" />
+            <element signature="e#11644#12720#0" expanded="false" />
+            <element signature="e#11708#12720#0" expanded="false" />
+            <element signature="e#11708#11742#1" expanded="false" />
+            <element signature="e#11893#12030#0" expanded="false" />
+            <element signature="e#11903#11989#0" expanded="false" />
+            <element signature="e#12077#12329#0" expanded="false" />
+            <element signature="e#12373#12576#0" expanded="false" />
+            <element signature="e#12452#12535#0" expanded="false" />
+            <element signature="e#12616#12682#0" expanded="false" />
+            <element signature="e#12760#13185#0" expanded="false" />
+            <element signature="e#12841#13185#0" expanded="false" />
+            <element signature="e#13082#13128#0" expanded="false" />
+            <element signature="e#13218#13605#0" expanded="false" />
+            <element signature="e#13293#13605#0" expanded="false" />
+            <element signature="e#13477#13547#0" expanded="false" />
+            <element signature="e#15423#15551#0" expanded="false" />
+            <element signature="e#15460#15495#0" expanded="false" />
+            <element signature="e#16004#16142#0" expanded="false" />
+            <element signature="e#16014#16101#0" expanded="false" />
+            <element signature="e#16389#16537#0" expanded="false" />
+            <element signature="e#16399#16496#0" expanded="false" />
+            <element signature="e#17125#17264#0" expanded="false" />
+            <element signature="e#17135#17223#0" expanded="false" />
+            <element signature="e#17526#17744#0" expanded="false" />
+            <element signature="e#17595#17703#0" expanded="false" />
+            <element signature="e#17786#18004#0" expanded="false" />
+            <element signature="e#17854#17963#0" expanded="false" />
+            <element signature="e#18182#18367#0" expanded="false" />
+            <element signature="e#18245#18326#0" expanded="false" />
+            <element signature="e#18387#18453#0" expanded="false" />
+            <element signature="e#18526#26327#0" expanded="false" />
+            <element signature="e#18610#18811#0" expanded="false" />
+            <element signature="e#18708#18753#0" expanded="false" />
+            <element signature="e#18896#25507#0" expanded="false" />
+            <element signature="e#19239#19374#0" expanded="false" />
+            <element signature="e#19249#19333#0" expanded="false" />
+            <element signature="e#20201#23229#0" expanded="false" />
+            <element signature="e#20262#21808#0" expanded="false" />
+            <element signature="e#20451#20688#0" expanded="false" />
+            <element signature="e#20526#20639#0" expanded="false" />
+            <element signature="e#20743#20980#0" expanded="false" />
+            <element signature="e#20818#20931#0" expanded="false" />
+            <element signature="e#21239#21497#0" expanded="false" />
+            <element signature="e#21316#21448#0" expanded="false" />
+            <element signature="e#21554#21808#0" expanded="false" />
+            <element signature="e#21629#21759#0" expanded="false" />
+            <element signature="e#21843#22741#0" expanded="false" />
+            <element signature="e#22114#22393#0" expanded="false" />
+            <element signature="e#22211#22344#0" expanded="false" />
+            <element signature="e#22451#22728#0" expanded="false" />
+            <element signature="e#22546#22679#0" expanded="false" />
+            <element signature="e#22782#22972#0" expanded="false" />
+            <element signature="e#23024#23229#0" expanded="false" />
+            <element signature="e#23091#23184#0" expanded="false" />
+            <element signature="e#23256#25289#0" expanded="false" />
+            <element signature="e#23308#25289#0" expanded="false" />
+            <element signature="e#23497#23734#0" expanded="false" />
+            <element signature="e#23572#23685#0" expanded="false" />
+            <element signature="e#23789#24026#0" expanded="false" />
+            <element signature="e#23864#23977#0" expanded="false" />
+            <element signature="e#24284#24542#0" expanded="false" />
+            <element signature="e#24361#24493#0" expanded="false" />
+            <element signature="e#24599#24853#0" expanded="false" />
+            <element signature="e#24674#24804#0" expanded="false" />
+            <element signature="e#24896#25004#0" expanded="false" />
+            <element signature="e#25064#25289#0" expanded="false" />
+            <element signature="e#25135#25240#0" expanded="false" />
+            <element signature="e#25308#25470#0" expanded="false" />
+            <element signature="e#25386#25460#0" expanded="false" />
+            <element signature="e#25594#26327#0" expanded="false" />
+            <element signature="e#25728#25862#0" expanded="false" />
+            <element signature="e#25738#25821#0" expanded="false" />
+            <element signature="e#25905#25957#0" expanded="false" />
+            <element signature="e#26001#26204#0" expanded="false" />
+            <element signature="e#26082#26163#0" expanded="false" />
+            <element signature="e#26224#26290#0" expanded="false" />
+            <element signature="e#26364#27043#0" expanded="false" />
+            <element signature="e#26428#27043#0" expanded="false" />
+            <element signature="e#26653#26746#0" expanded="false" />
+            <element signature="e#26795#27005#0" expanded="false" />
+            <element signature="e#26818#27004#0" expanded="false" />
+            <element signature="e#27047#27266#1" expanded="false" />
+            <element signature="e#27365#27414#0" expanded="false" />
+            <element signature="e#27485#28784#0" expanded="false" />
+            <element signature="e#27613#27678#0" expanded="false" />
+            <element signature="e#27706#28157#0" expanded="false" />
+            <element signature="e#27777#28047#0" expanded="false" />
+            <element signature="e#28091#28157#0" expanded="false" />
+            <element signature="e#28322#28382#0" expanded="false" />
+            <element signature="e#28444#28670#0" expanded="false" />
+            <element signature="e#28706#28768#0" expanded="false" />
+            <element signature="e#28828#29216#0" expanded="false" />
+            <element signature="e#28907#28941#0" expanded="false" />
+            <element signature="e#29249#29480#0" expanded="false" />
+            <element signature="e#29518#29705#0" expanded="false" />
+            <marker date="1545362524126" expanded="false" signature="1289:1662" ph="select * fro... rversion" />
+            <marker date="1545362524126" expanded="false" signature="1366:1437" ph="select reade... rversion" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d2b7aa2f/3eceaa17-1740-435a-a2fb-b295718da884/sznewupdate_test.rversion">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="id=35">
-            <filter text="id=35" />
-            <filter text="id=17" />
-            <filter text="id=2" />
-            <filter text="reader_id=8" />
-            <filter text="reader_id=2" />
-            <filter text="reader_id=10" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3eceaa17-1740-435a-a2fb-b295718da884/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d2b7aa2f/449ae19b-2550-4d89-b8ca-adde9dffd428/sznewupdate.rversion">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="id=24" />
-            <filter text="id=15" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d2b7aa2f/449ae19b-2550-4d89-b8ca-adde9dffd428/sznewupdate.package">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="model='dangdang86d_flaxp'">
-            <filter text="model='dangdang86d_flaxp'" />
-            <filter text="pid=14 AND base_version=1.0" />
-            <filter text="pid=7 AND base_version=1.0" />
-            <filter text="pid=7" />
-            <filter text="pid=24" />
-            <filter text="pid=15" />
-            <filter text="pid=2" />
-            <filter text="model='dangdang86d_flax'" />
-            <filter text="model='dangdang86d'" />
-            <filter text="pack='http://pack.obook.com.cn/szdownload/1.0epd86g.img'" />
-          </filtering>
         </state>
       </provider>
     </entry>

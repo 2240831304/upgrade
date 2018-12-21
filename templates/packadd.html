@@ -6,8 +6,13 @@
 
 {% block link %}
 <link href="{% static 'css/pack.css' %}" rel="stylesheet" type="text/css" />
-<script src="{% static 'js/jquery.form.min.js' %}"></script>
+<link href="{% static 'css/uploadifive.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/uploadify.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'js/jquery.uploadifive.min.js' %}"></script>
+<script src="{% static 'js/jquery.uploadify.min.js' %}"></script>
 <script src="{% static 'js/packadd.js' %}"></script>
+
+
 {% endblock %}
 
 {% block main %}
@@ -29,11 +34,21 @@
                 <li>
                     <label>硬件版本</label><input name="model" id="model" type="text">
                 </li>
-                <li>
-                    <label>更新包</label><input class="file" name="pack_con" id="pack_con" type="file">
+                <li class="clearfix">
+                    <label>更新包</label>
+                    <div id="pack_upload" class="fl">
+                        <input class="file" name="Filedata" id="pack_con" type="file">
+                    </div>
+                    <span id="pack_uuid" style="margin-left:15px;"></span>
+                    <input type="hidden" name="ctl00$MainContent$hiddenpack" id="MainContent_hiddenpack" />
                 </li>
-                <li>
-                    <label>Md5</label><input class="file" name="md5_con" id="md5_con" type="file">
+                <li class="clearfix">
+                    <label>Md5</label>
+                    <div id="md5_upload" class="fl">
+                        <input class="file" name="Filedata" id="md5_con" type="file">
+                    </div>
+                    <span id="md5_uuid" style="margin-left:15px;"></span>
+                    <input type="hidden" name="ctl00$MainContent$hiddenmd5" id="MainContent_hiddenmd5" />
                 </li>
             </ul>
             <div class="pack-sub">
@@ -45,4 +60,9 @@
 
     </div>
 </div>
+<script>
+    $(window).load(function () {
+
+    })
+</script>
 {% endblock %}

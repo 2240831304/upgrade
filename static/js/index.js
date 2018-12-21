@@ -35,7 +35,7 @@ $(document).ready(function () {
     // 获取对应阅读器的所有已同步版本号
     function getDependVersion(reader_id) {
         $.ajax({
-            url: '/pack/rv_' + reader_id + '/rversions/versions',
+            url: '/pack/reader_' + reader_id + '/rversions/versions',
             type: 'get',
             dataType: 'json',
             success: function (response) {
@@ -220,7 +220,7 @@ $(document).ready(function () {
             location.href = '/pack/rversion/rv_'+rv_id
         }).delegate('#history', 'click', function (e) {
             var reader_id = $(this).parent().parent().find("#reader_id").val();
-            location.href = '/pack/rv_' + reader_id + '/rversions'
+            location.href = '/pack/reader_' + reader_id + '/rversions'
         });
 
         // 目前不需要，可以以后会需要

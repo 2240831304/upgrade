@@ -1,6 +1,12 @@
 import re
-from ota.response_code import RET
+import hashlib
+import logging
+
 from django.shortcuts import render
+
+from ota.response_code import RET
+
+logger = logging.getLogger('ota')
 
 
 def upgrade_version(cu_version, reader_id, p_rv_obj, RVersion):
@@ -101,3 +107,17 @@ def get_pack(request, is_test, RVersion, Package):
     response = render(request, 'xml/upgrade.xml', context=context, content_type="application/xml")
     response['result-code'] = RET.OK
     return response
+
+
+def file_md5(file_path,Bytes=1024):
+    md5_obj = hashlib.md5()
+    with open(file_path, 'rb') as f:
+        while 1:
+            data =f.read(Bytes)
+            if data:
+                md5_obj.update(data)
+            else:
+                break
+    ret = md5_obj.hexdigest()
+    return ret
+

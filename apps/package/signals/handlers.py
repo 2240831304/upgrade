@@ -39,7 +39,7 @@ def sync_update_handler(sender, **kwargs):
             update_pack_obj.base_version = pack_obj.base_version
             update_pack_obj.model= pack_obj.model
             test_pack_name = urlsplit(pack_obj.pack).path[1:]
-            test_md5_name = urlsplit(pack_obj.md5_name).path[1:]
+            test_md5_name = urlsplit(pack_obj.md5).path[1:]
 
             # 将object_key替换
             pack_name = test_pack_name.replace(settings.TEST_OBJECT_KEY, settings.OBJECT_KEY)

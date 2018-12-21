@@ -187,20 +187,7 @@ def pack_translate():
 
 
 if __name__ == '__main__':
-    input('提示:删除packageupdate表86F-plus记录,同时要将rversion的state改成2')
-
-    '''
-    删除以下升级包记录
-    base_version     model                 pid
-    5.0              dangdang86d           2
-    5.0              dangdang86d_flaxp     2
-    4.0              epd86i_flaxfeibao     15
-    4.0              epd86i_flaxfeibao     24
-    1.0              epd86g                7
-    1.0              epd86g                14
-    1.0              epd86g                23
-    1.0              epd86g                25
-    '''
+    input('提示:删除packageupdate表86F-plus记录,同时要将rversion的state由0改成2')
 
     pack_translate()
     rv_translate()
