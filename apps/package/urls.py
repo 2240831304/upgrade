@@ -1,6 +1,6 @@
 from django.urls import path
 
-from package.views import IndexView, ReadersView, RVersionAddView, RVersionEditView, ReaderVersionsView, ReaderRVersionsView, RVersionStateView, PackagesView, PackUpload, PackagesInfoView, PackageAddView, PackageEditView
+from package.views import IndexView, ReadersView, RVersionAddView, RVersionEditView, ReaderVersionsView, ReaderRVersionsView, RVersionStateView, PackagesView, PackagesInfoView, PackageAddView, PackageEditView
 
 app_name ='package'
 urlpatterns = [
@@ -21,8 +21,7 @@ urlpatterns = [
 
     # 所有的升级包展示
     path('pid_<str:pid>/packages', PackagesView.as_view(), name='packages'),
-    # 上传升级包
-    path('upload', PackUpload.as_view(), name='pack_upload'),
+
     # 添加升级包版本
     path('pid_<str:pid>/package', PackageAddView.as_view(), name='pack_add'),
     # 对某个版本升级包的处理

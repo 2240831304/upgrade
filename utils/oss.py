@@ -10,6 +10,21 @@ from ota import settings
 logger = logging.getLogger('ota')
 
 
+# 响应状态码
+OK = 200
+DEL_OK = 204
+
+
+
+# 自定义异常
+class RenameException(Exception):
+    def __init__(self, obj_name):
+        self.err_msg = 'Rename Error: when rename {}'.format(obj_name)
+
+    def __str__(self):
+        return self.err_msg
+
+
 class LocalOSS(object):
     def __new__(cls, bucket_name, *args, **kwargs):
         if not hasattr(cls, '_instance'):
@@ -31,7 +46,7 @@ class LocalOSS(object):
         else:
             result = self.bucket.put_object_from_file(obj_name, file_path)
             url = settings.DOWNLOAD_URL_PRE + obj_name
-            if result.status == 200:
+            if result.status == OK:
                 return url
             else:
                 return False
@@ -46,27 +61,34 @@ class LocalOSS(object):
         else:
             result = self.bucket.put_object(obj_name, content)
             url = settings.DOWNLOAD_URL_PRE + obj_name
-            if result.status == 200:
+            if result.status == OK:
                 return url
             else:
                 return False
 
     # 删除单个文件
     def del_object(self, obj_name, *args, **kwargs):
+        # 判断目标文件名是否为空
+        if not obj_name:
+            return True
+
+        # 判断目标文件是否存在
         exists = self.obj_exists(obj_name)
         if not exists:
             logger.debug('{} is not exists'.format(obj_name))
             return False
         else:
             result = self.bucket.delete_object(obj_name)
-            if result.status != 200:
+            if result.status != DEL_OK:
                 return False
             return True
 
     # 同一oss 拷贝文件
     def copy_object(self, source_bucket_name, source_obj_name, dest_obj_name, *args, **kwargs):
+        if not source_obj_name:
+            return True
         result = self.bucket.copy_object(source_bucket_name, source_obj_name, dest_obj_name)
-        if result.status != 200:
+        if result.status != OK:
             return False
         return True
 
@@ -74,17 +96,21 @@ class LocalOSS(object):
     def obj_exists(self, obj_name):
         return self.bucket.object_exists(obj_name)
 
-
     # 重命名文件
-    def rename_object(self, source_bucket_name, source_obj_name, dest_obj_name, *args, **kwargs):
-        result1 = self.copy_object(source_bucket_name, source_obj_name, dest_obj_name)
+    def rename_object(self, old_bucket_name, old_obj_name, dest_obj_name, *args, **kwargs):
+        if not old_obj_name:
+            return None
+        # 拷贝源文件
+        result1 = self.copy_object(old_bucket_name, old_obj_name, dest_obj_name)
         if not result1:
-            logger.debug("{}:{}重命名为{}:{}失败".format(source_bucket_name, source_obj_name, self.bucket.bucket_name, dest_obj_name))
-            return False
-        result2 = self.del_object(self, source_obj_name)
+            logger.debug("{}:{}重命名为{}:{}失败".format(old_bucket_name, old_obj_name, self.bucket.bucket_name, dest_obj_name))
+            raise RenameException(old_obj_name)
+
+        # 删除源文件
+        result2 = self.del_object(self, old_obj_name)
         if not result2:
             logger.debug(
-                "{}:{}重命名为{}:{}失败".format(source_bucket_name, source_obj_name, self.bucket.bucket_name, dest_obj_name))
-            return False
+                "{}:{}重命名为{}:{}失败".format(old_bucket_name, old_obj_name, self.bucket.bucket_name, dest_obj_name))
+            raise RenameException(old_obj_name)
         url = settings.DOWNLOAD_URL_PRE + dest_obj_name
         return url

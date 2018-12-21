@@ -109,15 +109,10 @@ def get_pack(request, is_test, RVersion, Package):
     return response
 
 
-def file_md5(file_path,Bytes=1024):
+def file_md5(file_con):
     md5_obj = hashlib.md5()
-    with open(file_path, 'rb') as f:
-        while 1:
-            data =f.read(Bytes)
-            if data:
-                md5_obj.update(data)
-            else:
-                break
+    for data in file_con:
+        md5_obj.update(data)
     ret = md5_obj.hexdigest()
     return ret
 

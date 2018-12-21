@@ -53,8 +53,6 @@ class RET(object):
     ENCODINGERR            = 3100
 
 
-
-
 error_map = {
     HTTPCODE.OK                     : "请求成功",
     HTTPCODE.CREATED                : "创建成功",

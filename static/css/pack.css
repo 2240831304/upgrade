@@ -31,13 +31,6 @@
     border-bottom: solid 1px #ced9df;
 }
 
-#pack_upload, #md5_upload{
-    width: 120px;
-}
-
-#pack_uuid, #md5_uuid{
-    line-height: 32px;
-}
 
 .pack-edit-info .file{
     -webkit-appearance: initial;

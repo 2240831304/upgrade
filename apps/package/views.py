@@ -449,58 +449,6 @@ class PackagesView(View):
         return render(request, 'packages.html', context)
 
 
-class PackUpload(View):
-    @method_decorator(is_login)
-    def post(self, request):
-        folder = request.POST.get('folder')
-        file_obj = request.FILES.get('Filedata', None)
-
-        # 判断用户是否上传了有效文件
-        if not file_obj:
-            content = {
-                "code": CODE.PARAMERR,
-                "msg": "请上传有效文件"
-            }
-            return JsonResponse(content)
-        file_uuid_name = ''
-        # 删除旧文件,生成新文件
-        dir_list = os.listdir(settings.TMP_UPLOAD_DIR)
-
-        if folder == 'md5':
-            file_uuid_name = str(uuid.uuid4()) + '.img.md5'
-            for dir in dir_list:
-                if dir.endswith('.img.md5'):
-                    os.remove(settings.TMP_UPLOAD_DIR + dir)
-            tmp_file_path = settings.TMP_UPLOAD_DIR + file_uuid_name
-            with open(tmp_file_path, 'wb') as f:
-                for con in file_obj.chunks():
-                    f.write(con)
-        elif folder == 'pack':
-            file_uuid_name = str(uuid.uuid4())+'.img'
-            for dir in dir_list:
-                if dir.endswith('.img'):
-                    os.remove(settings.TMP_UPLOAD_DIR + dir)
-
-            tmp_file_path = settings.TMP_UPLOAD_DIR + file_uuid_name
-            with open(tmp_file_path, 'wb') as f:
-                for con in file_obj.chunks():
-                    f.write(con)
-        else:
-            content = {
-                "code": CODE.PARAMERR,
-                "msg": "无效的请求"
-            }
-            return JsonResponse(content)
-        content = {
-            "code": CODE.OK,
-            "msg": '上传成功',
-            "data": {
-                "file_uuid_name": file_uuid_name,
-            },
-        }
-        return JsonResponse(content)
-
-
 class PackageAddView(View):
     @method_decorator(login_required)
     def get(self, request, pid):
@@ -517,14 +465,14 @@ class PackageAddView(View):
         pid = request.POST.get('pid')
         base_version = request.POST.get('base_version')
         model = request.POST.get('model')
-        pack_uuid_name = request.POST.get('pack_uuid_name')
-        md5_uuid_name = request.POST.get('md5_uuid_name')
+        pack_con = request.FILES.get('pack_con')
+        md5_con = request.FILES.get('md5_con')
 
-        # 判断用户是否上传了有效文件
-        if not all([pack_uuid_name, md5_uuid_name]):
+        # 校验数据完整性
+        if not all([base_version, model]):
             content = {
                 "code": CODE.PARAMERR,
-                "msg": "请上传有效文件"
+                "msg": '缺少参数'
             }
             return JsonResponse(content)
 
@@ -540,52 +488,61 @@ class PackageAddView(View):
             }
             return JsonResponse(content)
 
-        # 生成文件名
-        pack_file_name = base_version+model+pid+'.img'
-        md5_file_name = base_version+model+pid+'.img.md5'
+        # 判断用户是否上传了有效文件
+        if not all([pack_con, md5_con]):
+            pack_url = ''
+            md5_url = ''
+        else:
+            pack_name = settings.TEST_OBJECT_KEY + base_version + model + pid + '.img'
+            md5_name = settings.TEST_OBJECT_KEY + base_version + model + pid + '.img.md5'
 
-        new_pack_name = settings.TEST_OBJECT_KEY + pack_file_name
-        new_md5_name = settings.TEST_OBJECT_KEY + md5_file_name
+            # 校验md5值
+            right_md5 = ''
+            for con in md5_con.chunks():
+                right_md5 = con.decode()
+            print(right_md5)
+            check_md5 = file_md5(pack_con.chunks())
+            print(check_md5)
 
-        tmp_pack_path = settings.TMP_UPLOAD_DIR + pack_uuid_name
-        tmp_md5_path = settings.TMP_UPLOAD_DIR + md5_uuid_name
+            if not (right_md5 == check_md5):
+                content = {
+                    "code": CODE.PARAMERR,
+                    "msg": "md5值校验失败"
+                }
+                return JsonResponse(content)
 
-        # 校验md5值
-        with open(tmp_md5_path, 'r') as f:
-            right_md5 = f.read(1024)
+            # 上传文件，保存数据库信息
+            oss_obj = LocalOSS(settings.BUCKET_NAME)
+            try:
+                pack_url = oss_obj.put_object(pack_name, pack_con.chunks())
+                md5_url = oss_obj.put_object(md5_name, md5_con.chunks())
+            except Exception as e:
+                logger.error(e)
+                content = {
+                    "code": CODE.THIRDERR,
+                    "msg": "上传文件出错"
+                }
+                return JsonResponse(content)
 
-        check_md5 = file_md5(tmp_pack_path)
+            if not pack_url:
+                logger.error("上传文件{}出错".format(pack_con.name))
+                content = {
+                    "code": CODE.THIRDERR,
+                    "msg": "上传文件错误".format(pack_con.name)
+                }
+                return JsonResponse(content)
 
-        if not (right_md5 == check_md5):
-            content = {
-                "code": CODE.PARAMERR,
-                "msg": "md5值校验失败"
-            }
-            return JsonResponse(content)
+            if not md5_url:
+                logger.error("上传文件{}出错".format(md5_con.name))
+                content = {
+                    "code": CODE.THIRDERR,
+                    "msg": "上传文件{}错误".format(md5_con.name)
+                }
+                return JsonResponse(content)
 
-        # 上传文件，保存数据库信息
-        oss_obj = LocalOSS(settings.BUCKET_NAME)
-        new_pack_url = oss_obj.put_file_object(new_pack_name, tmp_pack_path)
-        new_md5_url = oss_obj.put_object(new_md5_name, tmp_md5_path)
-
-        if not new_pack_url:
-            logger.error("上传文件{}出错".format(new_pack_name))
-            content = {
-                "code": CODE.THIRDERR,
-                "msg": "上传文件错误".format(new_pack_name)
-            }
-            return JsonResponse(content)
-
-        if not new_md5_url:
-            logger.error("上传文件{}出错".format(new_md5_name))
-            content = {
-                "code": CODE.THIRDERR,
-                "msg": "上传文件{}错误".format(new_md5_name)
-            }
-            return JsonResponse(content)
-
+        # 保存数据库信息
         try:
-            Package.objects.create(pid=pid, base_version=base_version, model=model, pack=new_pack_url, md5=new_md5_url)
+            Package.objects.create(pid=pid, base_version=base_version, model=model, pack=pack_url, md5=md5_url)
         except Exception as e:
             logger.error('保存失败 detail：{}'.format(e))
             content = {
@@ -621,9 +578,10 @@ class PackageEditView(View):
         pack_id = pack_id
         base_version = request.POST.get('base_version')
         model = request.POST.get('model')
-        pack_uuid_name = request.POST.get('pack_uuid_name')
-        md5_uuid_name = request.POST.get('md5_uuid_name')
+        pack_con = request.FILES.get('pack_con')
+        md5_con = request.FILES.get('md5_con')
 
+        # 校验数据完整性
         if not all([base_version, model]):
             content = {
                 "code": CODE.PARAMERR,
@@ -634,148 +592,127 @@ class PackageEditView(View):
         # 获取当前pack_id对应的对象
         package = Package.objects.filter(id=pack_id).first()
 
-        # 生成新文件名
-        new_pack_file_name = base_version + model + pid + '.img'
-        new_md5_file_name = base_version + model + pid + '.img.md5'
-        new_pack_name = settings.TEST_OBJECT_KEY + new_pack_file_name
-        new_md5_name = settings.TEST_OBJECT_KEY + new_md5_file_name
-
-        # 旧文件名
-        old_pack_name = urlsplit(package.pack).path[1:]
-        old_md5_name = urlsplit(package.md5).path[1:]
-
-        # 生成升级包临时文件的路径
-        tmp_pack_path = settings.TMP_UPLOAD_DIR + pack_uuid_name
-        tmp_md5_path = settings.TMP_UPLOAD_DIR + md5_uuid_name
+        old_pack = package.pack
+        old_md5 = package.md5
+        old_pack_name = urlsplit(old_pack).path[1:]
+        old_md5_name = urlsplit(old_md5).path[1:]
 
         # 生成oss对象
         oss_obj = LocalOSS(settings.BUCKET_NAME)
 
-        if not (new_pack_name == old_pack_name and new_md5_name == old_md5_name):  # 已改名
-            if pack_uuid_name or md5_uuid_name:  # 已修改文件
-                # 删除老文件,上传新文件
-                del_res1 = oss_obj.del_object(old_pack_name)
-                del_res2 = oss_obj.del_object(old_pack_name)
-                if not del_res1:
-                    logger.error("删除{}失败".format(old_pack_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "升级包信息更新失败"
-                    }
-                    return JsonResponse(content)
+        # 生成新文件名
+        new_pack_name = settings.TEST_OBJECT_KEY + base_version + model + pid + '.img'
+        new_md5_name = settings.TEST_OBJECT_KEY + base_version + model + pid + '.img.md5'
 
-                if not del_res2:
-                    logger.error("删除{}失败".format(old_pack_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "升级包信息更新失败"
-                    }
-                    return JsonResponse(content)
-
-                # 上传文件,保存数据库信息
-
-                new_pack_url = oss_obj.put_file_object(new_pack_name, tmp_pack_path)
-                new_md5_url = oss_obj.put_file_object(new_md5_name, tmp_md5_path)
-
-                if not new_pack_url:
-                    logger.error("上传文件{}出错".format(new_pack_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "上传文件错误".format(new_pack_name)
-                    }
-                    return JsonResponse(content)
-                if not new_md5_url:
-                    logger.error("上传文件{}出错".format(new_md5_url))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "上传文件错误".format(new_md5_url)
-                    }
-                    return JsonResponse(content)
-            else:
-                # 重命名
-                new_pack_url = oss_obj.rename_object(settings.BUCKET_NAME, old_pack_name, new_pack_name)
-                new_md5_url = oss_obj.rename_object(settings.BUCKET_NAME, old_md5_name, new_md5_name)
-
-                if not new_pack_url:
-                    logger.error("重命名文件{}to{}出错".format(old_pack_name, new_pack_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "修改文件{}错误".format(old_md5_name)
-                    }
-                    return JsonResponse(content)
-
-                if not new_md5_url:
-                    logger.error("重命名文件{}to{}出错".format(old_md5_name, new_md5_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "修改文件{}错误".format(old_md5_name)
-                    }
-                    return JsonResponse(content)
-            # 更新数据库
-            try:
-                package.base_version = base_version
-                package.model = model
-                package.pack = new_pack_url
-                package.md5 = new_md5_url
-                package.save()
-            except Exception as e:
-                logger.error('保存失败 detail：{}'.format(e))
-                content = {
-                    "code": CODE.DBERR,
-                    "msg": '上传失败'
-                }
-                return JsonResponse(content)
-        else:
-            if pack_uuid_name or md5_uuid_name:
-                # 删除老文件,上传新文件
-                del_res1 = oss_obj.del_object(old_pack_name)
-                del_res2 = oss_obj.del_object(old_pack_name)
-                if not del_res1:
-                    logger.error("删除{}失败".format(old_pack_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "升级包信息更新失败"
-                    }
-                    return JsonResponse(content)
-
-                if not del_res2:
-                    logger.error("删除{}失败".format(old_pack_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "升级包信息更新失败"
-                    }
-                    return JsonResponse(content)
-
-                # 上传文件,保存数据库信息
-                new_pack_url = oss_obj.put_file_object(new_pack_name, tmp_pack_path)
-                new_md5_url = oss_obj.put_file_object(new_md5_name, tmp_md5_path)
-
-                if not new_pack_url:
-                    logger.error("上传文件{}出错".format(new_pack_name))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "上传文件错误".format(new_pack_name)
-                    }
-                    return JsonResponse(content)
-                if not new_md5_url:
-                    logger.error("上传文件{}出错".format(new_md5_url))
-                    content = {
-                        "code": CODE.THIRDERR,
-                        "msg": "上传文件错误".format(new_md5_url)
-                    }
-                    return JsonResponse(content)
-
+        if (package.base_version + package.model) != (base_version + model):  # 修改文件名
+            if (not pack_con) and (not md5_con):  # 未修改文件
+                # 重命名文件
                 try:
-                    package.pack = new_pack_url
-                    package.md5 = new_md5_url
-                    package.save()
+                    new_pack_url = oss_obj.rename_object(settings.BUCKET_NAME, old_pack_name, new_pack_name)
+                    new_md5_url = oss_obj.rename_object(settings.BUCKET_NAME, old_md5_name, new_md5_name)
                 except Exception as e:
-                    logger.error('保存失败 detail：{}'.format(e))
+                    logger.error("拷贝对象失败 detail:{}".format(e))
                     content = {
-                        "code": CODE.DBERR,
-                        "msg": '上传失败'
+                        "code": CODE.THIRDERR,
+                        "msg": "升级包信息更新失败"
                     }
                     return JsonResponse(content)
+
+                if not (new_pack_url and new_md5_url):  # 包为空
+                    content = {
+                        "code": CODE.OK,
+                        "msg": '操作成功',
+                        "data": {
+                            "to_url": '/pack/pid_' + pid + '/packages'
+                        }
+                    }
+                    return JsonResponse(content)
+                # 更新数据库
+
+            else:  # 修改了文件
+                # 删除之前的pack
+                try:
+                    del_pack_res = oss_obj.del_object(old_pack_name)
+                    del_md5_res = oss_obj.del_object(old_md5_name)
+                except Exception as e:
+                    logger.error("删除对象失败 detail:{}".format(e))
+                    content = {
+                        "code": CODE.THIRDERR,
+                        "msg": "升级包信息更新失败"
+                    }
+                    return JsonResponse(content)
+
+                if not (del_pack_res and del_md5_res):
+                    content = {
+                        "code": CODE.THIRDERR,
+                        "msg": "升级包信息更新失败"
+                    }
+                    return JsonResponse(content)
+
+                # 保存新的包文件
+                try:
+                    new_pack_url = oss_obj.put_object(new_pack_name, pack_con.chunks())
+                    new_md5_url = oss_obj.put_object(new_md5_name, md5_con.chunks())
+                except Exception as e:
+                    logger.error("上传文件失败 detail:{}".format(e))
+                    content = {
+                        "code": CODE.THIRDERR,
+                        "msg": "升级包信息更新失败"
+                    }
+                    return JsonResponse(content)
+                # 更新数据库
+        else:  # 不修改文件名
+            if (not pack_con) and (not md5_con):  # 未修改文件
+                new_pack_url = old_pack
+                new_md5_url = old_md5
+            else:  # 修改了文件
+                # 删除之前的pack
+                try:
+                    del_pack_res = oss_obj.del_object(old_pack_name)
+                    del_md5_res = oss_obj.del_object(old_md5_name)
+                except Exception as e:
+                    logger.error("删除对象失败 detail:{}".format(e))
+                    content = {
+                        "code": CODE.THIRDERR,
+                        "msg": "升级包信息更新失败"
+                    }
+                    return JsonResponse(content)
+
+                if not (del_pack_res and del_md5_res):
+                    content = {
+                        "code": CODE.THIRDERR,
+                        "msg": "升级包信息更新失败"
+                    }
+                    return JsonResponse(content)
+
+                # 保存新的包文件
+                try:
+                    new_pack_url = oss_obj.put_object(new_pack_name, pack_con.chunks())
+                    new_md5_url = oss_obj.put_object(new_md5_name, md5_con.chunks())
+                except Exception as e:
+                    logger.error("上传文件失败 detail:{}".format(e))
+                    content = {
+                        "code": CODE.THIRDERR,
+                        "msg": "升级包信息更新失败"
+                    }
+                    return JsonResponse(content)
+                # 保存数据库信息
+
+        # 保存数据库信息
+        try:
+            package.base_version = base_version
+            package.model = model
+            package.pack = new_pack_url
+            package.md5 = new_md5_url
+            package.save()
+        except Exception as e:
+            logger.error('保存失败 detail：{}'.format(e))
+            content = {
+                "code": CODE.DBERR,
+                "msg": '文件上传失败'
+            }
+            return JsonResponse(content)
+
         content = {
             "code": CODE.OK,
             "msg": '操作成功',
