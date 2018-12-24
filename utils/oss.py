@@ -15,7 +15,6 @@ OK = 200
 DEL_OK = 204
 
 
-
 # 自定义异常
 class RenameException(Exception):
     def __init__(self, obj_name):

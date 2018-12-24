@@ -1,6 +1,5 @@
 import logging
-import os
-import uuid
+
 from multiprocessing.dummy import Pool
 from urllib.parse import urlsplit
 
@@ -500,9 +499,8 @@ class PackageAddView(View):
             right_md5 = ''
             for con in md5_con.chunks():
                 right_md5 = con.decode()
-            print(right_md5)
+
             check_md5 = file_md5(pack_con.chunks())
-            print(check_md5)
 
             if not (right_md5 == check_md5):
                 content = {
@@ -596,6 +594,20 @@ class PackageEditView(View):
         old_md5 = package.md5
         old_pack_name = urlsplit(old_pack).path[1:]
         old_md5_name = urlsplit(old_md5).path[1:]
+
+        # 校验md5值
+        right_md5 = ''
+        for con in md5_con.chunks():
+            right_md5 = con.decode()
+
+        check_md5 = file_md5(pack_con.chunks())
+
+        if not (right_md5 == check_md5):
+            content = {
+                "code": CODE.PARAMERR,
+                "msg": "md5值校验失败"
+            }
+            return JsonResponse(content)
 
         # 生成oss对象
         oss_obj = LocalOSS(settings.BUCKET_NAME)

@@ -30,6 +30,4 @@ urlpatterns = [
     # 将原有的包文件同步到oss中
     path('upload_pack', upload_pack),
     path('upload_pack_test', upload_pack_test),
-    # 任何其他路径都访问登录页面
-    path('', include('user.urls')),
 ]
