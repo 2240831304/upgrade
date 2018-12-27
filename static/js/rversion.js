@@ -34,7 +34,7 @@ $(function () {
         // 校检数据格式
         var res = checkRVersion(version);
         if (!res){
-            alert("阅读器版本只能以三位数以内的数字和小数点组成并且以数字结尾");
+            alert("阅读器版本只能以三位数以内的数字和小数点组成并且以数字结尾,同时组数不超过三组");
             return;
         }
 

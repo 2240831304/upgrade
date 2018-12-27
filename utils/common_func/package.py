@@ -5,17 +5,21 @@ import logging
 from django.shortcuts import render
 
 from ota.response_code import RET
+from package.sql import test_newest_rv
+from general_user.sql import newest_rv
+
 
 logger = logging.getLogger('ota')
 
 
-def upgrade_version(cu_version, reader_id, p_rv_obj, RVersion):
+def _upgrade_version(cu_version, reader_id, p_rv_obj, RVersion):
     depend_version = p_rv_obj.depend_version
+
     # 检验最新版本是否有依赖版本
-    if depend_version:
-        if cu_version < depend_version:  # 比依赖版本小
+    if depend_version not in ('0', None):
+        if fill_version(cu_version) < fill_version(depend_version):  # 比依赖版本小
             rv_obj = RVersion.objects.filter(reader_id=reader_id, version=depend_version).first()
-            return upgrade_version(cu_version, reader_id, rv_obj, RVersion)
+            return _upgrade_version(cu_version, reader_id, rv_obj, RVersion)
     return p_rv_obj
 
 
@@ -68,9 +72,9 @@ def get_pack(request, is_test, RVersion, Package):
 
     # 获取当前阅读器版本对应阅读器号的最新版本对象
     if is_test:
-        max_obj = RVersion.objects.filter(reader_id=reader_id).order_by('-version').first()
+        max_obj = RVersion.objects.raw(test_newest_rv, [reader_id])[0]
     else:
-        max_obj = RVersion.objects.filter(reader_id=reader_id, state=2).order_by('-version').first()
+        max_obj = RVersion.objects.raw(newest_rv, [reader_id])[0]
 
     if not max_obj:  # 没有最大版本
         response = render(request, 'xml/default.xml', content_type="application/xml")
@@ -78,7 +82,7 @@ def get_pack(request, is_test, RVersion, Package):
         return response
 
     # 返回要升级的版本
-    up_obj = upgrade_version(version, reader_id, max_obj, RVersion)
+    up_obj = _upgrade_version(version, reader_id, max_obj, RVersion)
 
     # 获取要升级版本的基础版本号
     base_version = re.search(r'(\d+?)\.', version).group(1) + '.0'
@@ -110,9 +114,46 @@ def get_pack(request, is_test, RVersion, Package):
 
 
 def file_md5(file_con):
+    '''返回文件md5值'''
     md5_obj = hashlib.md5()
     for data in file_con:
         md5_obj.update(data)
     ret = md5_obj.hexdigest()
     return ret
+
+
+def fill_version(version):
+    split_list = version.split('.')
+    if len(split_list) == 2:
+        split_list.append("0")
+    fill_str = '{0:0>5}{1:0>5}{2:0>5}'.format(*split_list)
+    return fill_str
+
+
+def fill_package(base_version):
+    split_list = base_version.split('.')
+    fill_str = '{0:0>5}{1:0>5}'.format(*split_list)
+    return fill_str
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -6,7 +6,7 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import authenticate, login, logout
-from constants import SESSION_EXPIRE_TIME
+from user.constants import SESSION_EXPIRE_TIME
 
 from ota.response_code import CODE
 

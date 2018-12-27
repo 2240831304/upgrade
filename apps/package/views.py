@@ -11,30 +11,25 @@ from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
+from django.db import transaction
 
 from ota.response_code import CODE
 from package.models import Reader, RVersion, Package
-from package.signals.signals import sync_update_signal
-from utils.common_func.package import file_md5
+from utils.common_func.package import file_md5, fill_version, fill_package
 from utils.decorator import is_login
 from utils.oss import LocalOSS
+from package.constants import RV_STATE
+from package.sql import *
+
 
 logger = logging.getLogger("ota")
-
-# 判断是否上传测试数据库升级包
-IS_TEST = False
-
-STATE = {
-    'ADD': 0,
-    'DELETE': 1,
-    'UPDATE': 2,
-}
 
 
 def get_update_versions(reader_id):
     # 返回对应阅读器号的所有已同步更新版本号
+
     version_list = []
-    version_objs = RVersion.objects.filter(reader_id=reader_id, state=STATE['UPDATE']).order_by('version')
+    version_objs = RVersion.objects.raw(test_order_update_rv, [reader_id, RV_STATE['UPDATE']])
     for version_obj in version_objs:
         version_list.append([version_obj.id, version_obj.version])
     return version_list
@@ -45,10 +40,7 @@ class IndexView(View):
     def get(self, request):
 
         # 获取所有未删除的阅读器号的最新版本对象
-        rv_objs = RVersion.objects.raw('select * from rversion '
-                                       'inner join (select reader_id,max(version) as max_v from rversion group by reader_id) as max_v_reader '
-                                       'on rversion.reader_id = max_v_reader.reader_id and rversion.version = max_v_reader.max_v '
-                                       'order by rversion.update_time desc;')
+        rv_objs = RVersion.objects.raw(test_each_newest_rvs)
 
         rv_list = []
         # 构建数据
@@ -152,7 +144,7 @@ class RVersionAddView(View):
             }
             return JsonResponse(content)
 
-        # 校检阅读器号是否存在,避免发布不存在的阅读器号
+        # 校检阅读器号是否存在,避免发布不存在的阅读器号的版本
         # 获取当前阅读器号未删除的所有对象
         reader = Reader.objects.filter(id=reader_id).first()
         if not reader:  # 不存在阅读器号
@@ -175,46 +167,47 @@ class RVersionAddView(View):
                 return JsonResponse(content)
 
             # 校验阅读器版本是否低于已发布的版本，只有高版本才能发布
-            max_obj = rversions.order_by('-version').first()
-            max_version = max_obj.version
+            max_rv_obj = RVersion.objects.raw(test_newest_rv, [reader_id])[0]
+            max_vcode = max_rv_obj.vcode
 
-            if version < max_version:
+            # 当前版本小于最大版本
+            if fill_version(version) < max_vcode:
                 content = {
                     "code": CODE.PARAMERR,
                     "msg": '最新发布的版本不能小于已发布的版本'
                 }
                 return JsonResponse(content)
 
-            if max_obj.state == STATE['ADD']:  # 当前版本号大于已发布但是未同步更新的版本号
+            if max_rv_obj.state == RV_STATE['ADD']:  # 当前版本号大于已发布但是未同步更新的版本号
                 content = {
                     "code": CODE.PARAMERR,
-                    "msg": '该阅读器号存在已发布未更新的版本'
+                    "msg": '该阅读器号存在已发布未同步更新的版本'
                 }
                 return JsonResponse(content)
 
             # 将最新的版本的所有升级包信息加入到新建版本中,如果有依赖版本,就只添加大于等于依赖版本对应基础版本的升级包信息
             # 如果有依赖版本
-            if depend_version:
-                depend_base_version = depend_version[0]+'.0'
-                pack_objs = Package.objects.filter(pid=max_obj.id, base_version__gte=depend_base_version)
+            if depend_version not in ('0', None):
+                depend_base_version = depend_version.split('.')[0]+'.0'
+                pack_objs = Package.objects.raw(test_get_rv_gte_depend_package, [max_rv_obj.id, fill_package(depend_base_version)])
             else:
-                pack_objs = Package.objects.filter(pid=max_obj.id)
+                pack_objs = Package.objects.filter(pid=max_rv_obj.id)
             try:
-                rv_obj = RVersion()
-                rv_obj.reader_id = reader_id
-                rv_obj.version = version
-                rv_obj.title = title
-                rv_obj.description = description
-                rv_obj.depend_version = depend_version
-                rv_obj.sort = reader.sort
-                rv_obj.save()
+                new_rv_obj = RVersion()
+                new_rv_obj.reader_id = reader_id
+                new_rv_obj.version = version
+                new_rv_obj.title = title
+                new_rv_obj.description = description
+                new_rv_obj.depend_version = depend_version
+                new_rv_obj.sort = reader.sort
+                new_rv_obj.save()
                 for pack_obj in pack_objs:
                     new_pack_obj = Package()
                     new_pack_obj.base_version = pack_obj.base_version
                     new_pack_obj.model = pack_obj.model
-                    new_pack_obj.pack = pack_obj.pack
-                    new_pack_obj.md5 = pack_obj.md5
-                    new_pack_obj.pid = rv_obj.id
+                    new_pack_obj.pack = ''
+                    new_pack_obj.md5 = ''
+                    new_pack_obj.pid = new_rv_obj.id
                     new_pack_obj.state = pack_obj.state
                     new_pack_obj.save()
             except Exception as e:
@@ -224,17 +217,17 @@ class RVersionAddView(View):
                     "msg": "发布失败"
                 }
                 return JsonResponse(content)
+
         else:
-            # 存储
             try:
-                rv_obj = RVersion()
-                rv_obj.reader_id = reader_id
-                rv_obj.version = version
-                rv_obj.title = title
-                rv_obj.description = description
-                rv_obj.depend_version = depend_version
-                rv_obj.sort = reader.sort
-                rv_obj.save()
+                new_rv_obj = RVersion()
+                new_rv_obj.reader_id = reader_id
+                new_rv_obj.version = version
+                new_rv_obj.title = title
+                new_rv_obj.description = description
+                new_rv_obj.depend_version = depend_version
+                new_rv_obj.sort = reader.sort
+                new_rv_obj.save()
             except Exception as e:
                 logger.error('{}{}发布失败,detail:{}'.format(reader_id, version, e))
                 content = {
@@ -297,18 +290,30 @@ class RVersionEditView(View):
                 "code": CODE.PARAMERR,
                 "msg": "参数不完整"
             }
+            return JsonResponse(content)
 
         # 校验阅读器号的当前版本是否存在
-        is_exists = RVersion.objects.filter(reader_id=reader_id, version=version).exists()
-        if not is_exists:
+        rv_obj = RVersion.objects.filter(id=rv_id).first()
+        if not rv_obj:
             content = {
                 "code": CODE.PARAMERR,
-                "msg": '请输入正确的阅读器号和版本号'
+                "msg": '当前版本不存在'
+            }
+            return JsonResponse(content)
+
+        # 校验当前提交版本是否低于已同步更新最高版本
+        max_rv_obj = RVersion.objects.raw(test_order_update_rv, [reader_id, RV_STATE['UPDATE']])[0]
+        max_vcode = max_rv_obj.vcode
+
+        # 当前版本小于最大版本
+        if fill_version(version) < max_vcode:
+            content = {
+                "code": CODE.PARAMERR,
+                "msg": '发布版本不能小于已同步更新的版本'
             }
             return JsonResponse(content)
 
         try:
-            rv_obj = RVersion.objects.get(reader_id=reader_id, version=version)
             rv_obj.version = version
             rv_obj.title = title
             rv_obj.description = description
@@ -331,22 +336,23 @@ class RVersionEditView(View):
         }
         return JsonResponse(content)
 
-        # 暂时用不到，后期可能用到
-        # def delete(sel, request):
-        #     '''删除当前阅读器的当前版本'''
-        #     # 获取数据
-        #     DELETE = QueryDict(request.body)
-        #     rv_id = DELETE.get('rv_id')
-        #
-        #     # 校验数据
-        #
-        #     # 业务处理，将rversion的state变为1，同时所有的升级包的状态也变成1
-        #
-        #     content = {
-        #         "code": CODE.OK,
-        #         "msg": "修改成功"
-        #     }
-        #     return JsonResponse(content)
+    # 暂时用不到，后期可能用到
+    # @method_decorator(is_login)
+    # def delete(sel, request):
+    #     '''删除当前阅读器的当前版本'''
+    #     # 获取数据
+    #     DELETE = QueryDict(request.body)
+    #     rv_id = DELETE.get('rv_id')
+    #
+    #     # 校验数据
+    #
+    #     # 业务处理，将rversion的state变为1，同时所有的升级包的状态也变成1
+    #
+    #     content = {
+    #         "code": CODE.OK,
+    #         "msg": "修改成功"
+    #     }
+    #     return JsonResponse(content)
 
 
 class ReaderVersionsView(View):
@@ -374,7 +380,7 @@ class ReaderVersionsView(View):
 
 # 同步更新
 class RVersionStateView(View):
-    @method_decorator(is_login)
+    @method_decorator(is_login, transaction.atomic)
     def put(self, request):
         '''
         点击同步更新后的操作
@@ -395,9 +401,54 @@ class RVersionStateView(View):
         try:
 
             rv_obj = RVersion.objects.get(id=rv_id)
-            rv_obj.state = 2
+            rv_obj.state = RV_STATE['UPDATE']
             pack_objs = Package.objects.filter(pid=rv_id)
-            sync_update_signal.send(sender='RVersionStateView', rv_obj=rv_obj, pack_objs=pack_objs)
+
+            # 修改用户数据库数据
+            with transaction.atomic():
+                sp1 = transaction.savepoint()
+                try:
+                    RVersion.objects.create(
+                        reader_id=rv_obj.reader_id,
+                        version=rv_obj.version,
+                        title=rv_obj.title,
+                        description=rv_obj.description,
+                        state=RV_STATE['UPDATE'],
+                        depend_version=rv_obj.depend_version,
+                        sort=rv_obj.sort,
+                    )
+                except Exception as e:
+                    transaction.savepoint_rollback(sp1)
+                    raise e
+
+                # 获取用户数据库中阅读器当前版本的id
+                pid = RVersion.objects.filter(reader_id=rv_obj.reader_id, version=rv_obj.version).first().id
+                for pack_obj in pack_objs:
+
+                    try:
+                        test_pack_name = urlsplit(pack_obj.pack).path[1:]
+                        test_md5_name = urlsplit(pack_obj.md5).path[1:]
+
+                        # 将object_key替换
+                        pack_name = test_pack_name.replace(settings.TEST_OBJECT_KEY, settings.OBJECT_KEY)
+                        md5_name = test_md5_name.replace(settings.TEST_OBJECT_KEY, settings.OBJECT_KEY)
+
+                        Package.objects.create(
+                            base_version=pack_obj.base_version,
+                            model=pack_obj.model,
+                            pack=settings.DOWNLOAD_URL_PRE + pack_name,
+                            md5=settings.DOWNLOAD_URL_PRE + md5_name,
+                            pid=pid
+                        )
+
+                        # 将测试包拷贝到用户包存储路径
+                        oss_obj = LocalOSS(settings.BUCKET_NAME)
+                        oss_obj.copy_object(settings.BUCKET_NAME, test_pack_name, pack_name)
+                        oss_obj.copy_object(settings.BUCKET_NAME, test_md5_name, md5_name)
+                    except Exception as e:
+                        transaction.savepoint_rollback(sp1)
+                        raise e
+
             rv_obj.save()
         except Exception as e:
             logger.error('{}阅读器版本同步更新失败, detail:{}'.format(rv_id,e))
@@ -419,11 +470,7 @@ class ReaderRVersionsView(View):
     @method_decorator(login_required)
     def get(self, request, reader_id):
         '''返回当前阅读器所有的已同步更新的所有版本的所有信息'''
-        rversions = RVersion.objects.filter(reader_id=reader_id).order_by('update_time')
-
-        # 对描述进行处理
-        for rversion in rversions:
-            description = rversion.description
+        rversions = RVersion.objects.filter(reader_id=reader_id, state=RV_STATE['UPDATE']).order_by('update_time')
 
         context = {
             "rversions": rversions
@@ -438,8 +485,7 @@ class PackagesView(View):
         '''返回当前阅读器当前版本的所有升级包展示界面'''
 
         # 获取对应阅读器版本的未删除的所有升级包
-        pack_objs = Package.objects.filter(pid=pid, state=STATE['ADD']).order_by('base_version', 'model')
-
+        pack_objs = Package.objects.raw(test_get_rv_packages_not_delete, [pid, RV_STATE['DELETE']])
         context = {
             'pid': pid,
             'pack_objs': pack_objs
@@ -476,7 +522,7 @@ class PackageAddView(View):
             return JsonResponse(content)
 
         # 获取当前pid对应的未删除的所有包
-        packages = Package.objects.filter(pid=pid, state=STATE['ADD'])
+        packages = Package.objects.filter(pid=pid, state=RV_STATE['ADD'])
 
         # 判断当前基础版本的硬件版本是否存在
         pack_obj = packages.filter(base_version=base_version, model=model)
@@ -498,7 +544,15 @@ class PackageAddView(View):
             # 校验md5值
             right_md5 = ''
             for con in md5_con.chunks():
-                right_md5 = con.decode()
+                try:
+                    right_md5 = con.decode()
+                except Exception as e:
+                    logger.error("md5文件上传错误, detail:{}".format(e))
+                    content = {
+                        "code": CODE.PARAMERR,
+                        "msg": "md5值校验失败"
+                    }
+                    return JsonResponse(content)
 
             check_md5 = file_md5(pack_con.chunks())
 
@@ -595,19 +649,28 @@ class PackageEditView(View):
         old_pack_name = urlsplit(old_pack).path[1:]
         old_md5_name = urlsplit(old_md5).path[1:]
 
-        # 校验md5值
-        right_md5 = ''
-        for con in md5_con.chunks():
-            right_md5 = con.decode()
+        if all([pack_con, md5_con]):
+            # 校验md5值
+            right_md5 = ''
+            for con in md5_con.chunks():
+                try:
+                    right_md5 = con.decode()
+                except Exception as e:
+                    logger.error("md5文件上传错误, detail:{}".format(e))
+                    content = {
+                        "code": CODE.PARAMERR,
+                        "msg": "md5值校验失败"
+                    }
+                    return JsonResponse(content)
 
-        check_md5 = file_md5(pack_con.chunks())
+            check_md5 = file_md5(pack_con.chunks())
 
-        if not (right_md5 == check_md5):
-            content = {
-                "code": CODE.PARAMERR,
-                "msg": "md5值校验失败"
-            }
-            return JsonResponse(content)
+            if not (right_md5 == check_md5):
+                content = {
+                    "code": CODE.PARAMERR,
+                    "msg": "md5值校验失败"
+                }
+                return JsonResponse(content)
 
         # 生成oss对象
         oss_obj = LocalOSS(settings.BUCKET_NAME)
@@ -749,7 +812,7 @@ class PackageEditView(View):
 
         # 修改包状态
         try:
-            pack.state = STATE['DELETE']
+            pack.state = RV_STATE['DELETE']
             pack.save()
         except Exception as e:
             logger.error("packid_{}删除失败，detail：{}".format(pack_id, e))
@@ -773,7 +836,7 @@ class PackagesInfoView(View):
         rv_id = request.GET.get('rv_id')
 
         # 获取对应阅读器版本的未删除的所有升级包
-        pack_objs = Package.objects.filter(pid=rv_id, state=STATE['ADD']).order_by('base_version', 'model')
+        pack_objs = Package.objects.raw(test_get_rv_packages_not_delete, [rv_id, RV_STATE['DELETE']])
 
         content = {
             "code": CODE.OK,
@@ -807,7 +870,7 @@ accptencoding 修改后返回空文件
 from utils.common_func.package import get_pack
 
 
-# 测试使用返回升级包信息
+# 测试人员使用,返回升级包信息
 def get_package_test(request):
     return get_pack(request, True, RVersion, Package)
 

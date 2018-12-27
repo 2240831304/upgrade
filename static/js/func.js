@@ -14,14 +14,14 @@ function checkReader(reader_name) {
 
 // 校验阅读器版本号
 function checkRVersion(rversion) {
-    var reg = new RegExp("^((?!0)(?:[0-9]{1,3})\\.)((?!0)(?:[0-9]{1,3})|0\\.)*((?!0)(?:[0-9]{1,3})|0)$");
+    var reg = new RegExp("^((?!0)(?:[0-9]{1,3})\\.)(((?!0)(?:[0-9]{1,3})|0)\\.)?((?!0)(?:[0-9]{1,3})|0)$");
     res = reg.test(rversion);
     return res
 }
 
 // 校验基础版本号
 function checkBaseVersion(base_version) {
-    var reg = new RegExp("^(?!0)(?:[0-9]{1,2})\\.((?!0)(?:[0-9]{1,2})|0)$");
+    var reg = new RegExp("^(?!0)(?:[0-9]{1,2})\\.0$");
     res = reg.test(base_version);
     return res
 }
