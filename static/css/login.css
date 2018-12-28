@@ -50,12 +50,7 @@
     font-family: vani;
     border-width: 2px;
     border-style: inset;
-    border-color: initial;
-    border-top-color: initial;
-    border-right-color: initial;
-    border-bottom-color: initial;
-    border-left-color: initial;
-    border-image: initial;
+    font: 400 13.3333px Arial;
 }
 
 .login-form .passwd{

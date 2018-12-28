@@ -48,31 +48,48 @@ body{
     font-size: inherit;
 }
 
-.navigation{
-    height: 35px;
+.navigation_back{
     background-color: #3a4f63;
+    height: 35px;
+    width: 100%;
 }
 
-.navigation ul {
-    margin-left: 8px;
+.navigation{
+    height: 27px;
+    background-color: #3a4f63;
+    padding-top: 4px;
+    padding-right: 0px;
+    padding-bottom: 4px;
+    padding-left: 8px;
 }
 
-.navigation div{
-    margin: 4px 0px;
-    background-color: #465c71;
-    border: 1px #4e667d solid;
-    color: #dde4ec;
+.clear{
+    clear: both;
+}
+
+.navigation ul{
+    position: relative;
+    width: auto;
+    display: block;
 }
 
 .navigation li{
-    padding: 4px 20px;
+    position: relative;
+    text-align: center;
 }
 
 .navigation a{
-    color: inherit;
+    background-color: #465c71;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
 }
-
-.navigation div:hover{
+.navigation a:hover{
     background-color: #bfcbd6;
     color: #465c71;
 }

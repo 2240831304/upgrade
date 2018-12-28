@@ -8,9 +8,9 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 from utils.decorator import is_login
-
 from ota.response_code import CODE
 from faq.models import FAQ
+from faq.constants import FAQ_STATE
 
 logger = logging.getLogger('ota')
 
@@ -19,7 +19,7 @@ class FAQListView(View):
     @method_decorator(login_required)
     def get(self, request):
         # 获取所有的未删除的faq
-        faq_objs = FAQ.objects.filter(state=0)
+        faq_objs = FAQ.objects.filter(state=FAQ_STATE['ADD'])
 
         context = {
             "faq_objs": faq_objs
@@ -142,7 +142,7 @@ class FAQEditView(View):
             return JsonResponse(content)
 
         try:
-            faq_obj.state = 1
+            faq_obj.state = FAQ_STATE['DELETE']
         except Exception as e:
             logger.error("faqid:{}删除失败, detail:{}".format(faq_id, e))
             content = {

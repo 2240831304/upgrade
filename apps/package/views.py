@@ -18,7 +18,7 @@ from package.models import Reader, RVersion, Package
 from utils.common_func.package import file_md5, fill_version, fill_package
 from utils.decorator import is_login
 from utils.oss import LocalOSS
-from package.constants import RV_STATE
+from package.constants import RV_STATE, PACK_STATE
 from package.sql import *
 
 
@@ -404,11 +404,12 @@ class RVersionStateView(View):
             rv_obj.state = RV_STATE['UPDATE']
             pack_objs = Package.objects.filter(pid=rv_id)
 
+            from general_user.models import RVersion as URVersion, Package as UPackage
             # 修改用户数据库数据
             with transaction.atomic():
                 sp1 = transaction.savepoint()
                 try:
-                    RVersion.objects.create(
+                    URVersion.objects.create(
                         reader_id=rv_obj.reader_id,
                         version=rv_obj.version,
                         title=rv_obj.title,
@@ -422,9 +423,8 @@ class RVersionStateView(View):
                     raise e
 
                 # 获取用户数据库中阅读器当前版本的id
-                pid = RVersion.objects.filter(reader_id=rv_obj.reader_id, version=rv_obj.version).first().id
+                pid = URVersion.objects.filter(reader_id=rv_obj.reader_id, version=rv_obj.version).first().id
                 for pack_obj in pack_objs:
-
                     try:
                         test_pack_name = urlsplit(pack_obj.pack).path[1:]
                         test_md5_name = urlsplit(pack_obj.md5).path[1:]
@@ -433,7 +433,7 @@ class RVersionStateView(View):
                         pack_name = test_pack_name.replace(settings.TEST_OBJECT_KEY, settings.OBJECT_KEY)
                         md5_name = test_md5_name.replace(settings.TEST_OBJECT_KEY, settings.OBJECT_KEY)
 
-                        Package.objects.create(
+                        UPackage.objects.create(
                             base_version=pack_obj.base_version,
                             model=pack_obj.model,
                             pack=settings.DOWNLOAD_URL_PRE + pack_name,
@@ -522,7 +522,7 @@ class PackageAddView(View):
             return JsonResponse(content)
 
         # 获取当前pid对应的未删除的所有包
-        packages = Package.objects.filter(pid=pid, state=RV_STATE['ADD'])
+        packages = Package.objects.filter(pid=pid, state=PACK_STATE['ADD'])
 
         # 判断当前基础版本的硬件版本是否存在
         pack_obj = packages.filter(base_version=base_version, model=model)
@@ -812,7 +812,7 @@ class PackageEditView(View):
 
         # 修改包状态
         try:
-            pack.state = RV_STATE['DELETE']
+            pack.state = PACK_STATE['DELETE']
             pack.save()
         except Exception as e:
             logger.error("packid_{}删除失败，detail：{}".format(pack_id, e))

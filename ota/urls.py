@@ -20,7 +20,7 @@ from general_user.views import get_package
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('user/', include('user.urls', namespace='userview')),
     path('pack/', include('package.urls', namespace='pack')),
     path('faq/', include('faq.urls', namespace='faq')),

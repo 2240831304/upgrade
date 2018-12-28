@@ -39,20 +39,17 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="navigation">
-                <ul>
-                    <div class="package-list fl clearfix">
-                        <li>
+            <div class="navigation_back clearfix">
+                <div class="navigation clear fl">
+                    <ul class="fl">
+                        <li class="fl">
                             <a href="{% url 'pack:index' %}">更新包列表</a>
                         </li>
-                    </div>
-                    <div class="faq-list fl clearfix">
-                        <li>
+                        <li class="fl">
                             <a href="{% url 'faq:faqs' %}">faq列表</a>
                         </li>
-                    </div>
-                </ul>
-
+                    </ul>
+                </div>
             </div>
         </div>
         {% block main %}
