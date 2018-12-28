@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from package.views import get_package_test, upload_pack, upload_pack_test
 from general_user.views import get_package
+from user.views import LoginView
 
 
 urlpatterns = [
@@ -30,4 +31,5 @@ urlpatterns = [
     # 将原有的包文件同步到oss中
     path('upload_pack', upload_pack),
     path('upload_pack_test', upload_pack_test),
+    path('', LoginView.as_view()),
 ]

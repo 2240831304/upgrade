@@ -380,7 +380,7 @@ class ReaderVersionsView(View):
 
 # 同步更新
 class RVersionStateView(View):
-    @method_decorator(is_login, transaction.atomic)
+    @method_decorator(is_login)
     def put(self, request):
         '''
         点击同步更新后的操作
@@ -399,14 +399,13 @@ class RVersionStateView(View):
 
         # 3、业务逻辑处理
         try:
-
             rv_obj = RVersion.objects.get(id=rv_id)
             rv_obj.state = RV_STATE['UPDATE']
             pack_objs = Package.objects.filter(pid=rv_id)
 
             from general_user.models import RVersion as URVersion, Package as UPackage
             # 修改用户数据库数据
-            with transaction.atomic():
+            with transaction.atomic(using='generaldb'):
                 sp1 = transaction.savepoint()
                 try:
                     URVersion.objects.create(
@@ -470,9 +469,10 @@ class ReaderRVersionsView(View):
     @method_decorator(login_required)
     def get(self, request, reader_id):
         '''返回当前阅读器所有的已同步更新的所有版本的所有信息'''
-        rversions = RVersion.objects.filter(reader_id=reader_id, state=RV_STATE['UPDATE']).order_by('update_time')
-
+        rversions = RVersion.objects.filter(reader_id=reader_id, state=RV_STATE['UPDATE']).order_by('-update_time')
+        reader_name =  Reader.objects.get(id=reader_id).reader_name
         context = {
+            'reader_name':reader_name,
             "rversions": rversions
         }
 

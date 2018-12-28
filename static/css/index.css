@@ -64,7 +64,6 @@
 
 .reader-table input{
     padding: 1px 6px;
-    box-sizing: border-box;
     border-width: 2px;
     border-style: outset;
     border-color: buttonface;

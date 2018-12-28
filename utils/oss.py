@@ -24,6 +24,14 @@ class RenameException(Exception):
         return self.err_msg
 
 
+class CopyException(Exception):
+    def __init__(self, source_obj_name, dest_obj_name):
+        self.err_msg = "Copy Error: when copy {} to {}".format(source_obj_name, dest_obj_name)
+
+    def __str__(self):
+        return self.err_msg
+
+
 class LocalOSS(object):
     def __new__(cls, bucket_name, *args, **kwargs):
         if not hasattr(cls, '_instance'):
@@ -72,8 +80,8 @@ class LocalOSS(object):
             return True
 
         # 判断目标文件是否存在
-        exists = self.obj_exists(obj_name)
-        if not exists:
+        is_exists = self.obj_exists(obj_name)
+        if not is_exists:
             logger.debug('{} is not exists'.format(obj_name))
             return False
         else:
@@ -86,9 +94,14 @@ class LocalOSS(object):
     def copy_object(self, source_bucket_name, source_obj_name, dest_obj_name, *args, **kwargs):
         if not source_obj_name:
             return True
+        try:
+            self.bucket.object_exists(source_obj_name)
+        except Exception as e:
+            raise e
+
         result = self.bucket.copy_object(source_bucket_name, source_obj_name, dest_obj_name)
         if result.status != OK:
-            return False
+            raise CopyException(source_obj_name, dest_obj_name)
         return True
 
     # 判断文件是否存在
@@ -100,10 +113,11 @@ class LocalOSS(object):
         if not old_obj_name:
             return None
         # 拷贝源文件
-        result1 = self.copy_object(old_bucket_name, old_obj_name, dest_obj_name)
-        if not result1:
+        try:
+            self.copy_object(old_bucket_name, old_obj_name, dest_obj_name)
+        except Exception as e:
             logger.debug("{}:{}重命名为{}:{}失败".format(old_bucket_name, old_obj_name, self.bucket.bucket_name, dest_obj_name))
-            raise RenameException(old_obj_name)
+            raise e
 
         # 删除源文件
         result2 = self.del_object(self, old_obj_name)

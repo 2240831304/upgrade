@@ -4,7 +4,7 @@ $(document).ready(function(){
         event.preventDefault();
         var username = $('#username').val();
         var passwd = $('#passwd').val();
-
+        passwd = sha1(passwd);
         // 校验是否有值
         if (!username) {
             $("#error-msg p").html("用户名不能为空！");
