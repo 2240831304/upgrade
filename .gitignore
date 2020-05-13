@@ -57,7 +57,7 @@ docs/_build/
 # PyBuilder
 target/
 
-#migrations/00*.py
+migrations/00*.py
 .idea/*
 
 
