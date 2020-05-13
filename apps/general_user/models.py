@@ -15,7 +15,7 @@ IS_DELETE = (
 )
 
 
-class RVersion(BaseModel):
+class UpRVersion(BaseModel):
     reader_id = models.IntegerField(verbose_name='阅读器id')
     version = models.CharField(max_length=64, verbose_name='版本')
     title = models.CharField(max_length=124, verbose_name='标题')
@@ -26,12 +26,12 @@ class RVersion(BaseModel):
 
     class Meta:
         app_label = 'general_user'
-        db_table = 'rversion'
+        db_table = 'uprversion'
         verbose_name = '阅读器版本号'
         verbose_name_plural = verbose_name
 
 
-class Package(BaseModel):
+class UpPackage(BaseModel):
     base_version = models.CharField(max_length=64, verbose_name='基础版本')
     model = models.CharField(max_length=64, verbose_name="硬件版本")
     pack = models.CharField(max_length=256, verbose_name='升级包下载地址')
@@ -41,6 +41,6 @@ class Package(BaseModel):
 
     class Meta:
         app_label = 'general_user'
-        db_table = "package"
+        db_table = "uppackage"
         verbose_name = '升级包版本号'
         verbose_name_plural = verbose_name

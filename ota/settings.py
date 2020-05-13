@@ -85,19 +85,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sznewupdate_test',
+        'NAME': 'upandroid',
         'HOST': 'localhost',
         'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-    },
-    "generaldb": {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sznewupdate',
-        'HOST': 'localhost',
-        'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'mysql',
+        'USER': 'wechat',
+        'PASSWORD': 'wechat2018@)!*',
     }
 }
 
@@ -106,7 +98,6 @@ DATABASE_ROUTERS = ['ota.database_router.DatabaseAppsRouter']
 
 # 设置数据库和app的对应关系
 DATABASE_APPS_MAPPING = {
-    'general_user': 'generaldb',
 }
 
 # Password validation

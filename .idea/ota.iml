@@ -7,6 +7,8 @@
         <option name="settingsModule" value="guowen/settings.py" />
         <option name="manageScript" value="$MODULE_DIR$/manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
+        <option name="doNotUseTestRunner" value="false" />
+        <option name="trackFilePattern" value="migrations" />
       </configuration>
     </facet>
   </component>
@@ -17,7 +19,7 @@
       <sourceFolder url="file://$MODULE_DIR$/apps/package" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/apps/user" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.5.2 virtualenv at ~/.virtualenvs/guowen" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (andriodserver)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
