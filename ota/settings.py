@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'package.apps.PackageConfig',
     'user.apps.UserConfig',
     'general_user.apps.GeneralUserConfig',
+    "update.apps.UpdateConfig",
     'tinymce',
 ]
 
