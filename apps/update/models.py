@@ -12,7 +12,7 @@ class softwarepackage(models.Model):
     pubdate = models.DateTimeField(auto_now=True)
 
     class Meta:
-        #app_label = 'update'
+        app_label = 'update'
         db_table = 'softwarepackage'
         verbose_name = '软件包信息'
         verbose_name_plural = verbose_name
@@ -29,7 +29,7 @@ class hardwarepackage(models.Model):
 
 
     class Meta:
-        # app_label = 'update'
+        app_label = 'update'
         db_table = 'hardwarepackage'
         verbose_name = '硬件包信息'
         verbose_name_plural = verbose_name

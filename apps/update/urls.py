@@ -6,4 +6,5 @@ from update import views
 
 urlpatterns = [
     path('updatetest/', views.updateTest),
+    path('update',views.CheckVersion)
 ]
