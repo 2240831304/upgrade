@@ -4,20 +4,16 @@ from django.db.models import Max
 from update.models import softwarepackage
 
 
-SoftUpdateContent = {
-    "update":"0",
-    "version":"",
-    "url":"",
-    "md5":"",
-    "content":""
-}
-
-
-
 def checkUpdate(request):
     #urlPath = request.get_full_path()
     resultCode = "0"
-    returnData = SoftUpdateContent
+    returnData = {
+        "update":"0",
+        "version":"",
+        "url":"",
+        "md5":"",
+        "content":""
+    }
 
     try:
         urlParse = urllib.parse.urlparse(request.get_full_path())
@@ -55,12 +51,15 @@ def checkUpdate(request):
 
     VersionData = deviceVersion[0]
     newestVersion = VersionData["version"]
+    #print(machineVersion,newestVersion)
 
-    returnData["update"] = "1"
-    returnData["version"] = VersionData["version"]
-    returnData["url"] = VersionData["url"]
-    returnData["md5"] = VersionData["md5"]
-    returnData["content"] = VersionData["updateContent"]
-    print(returnData)
+    if newestVersion > machineVersion :
+        returnData["update"] = "1"
+        returnData["version"] = VersionData["version"]
+        returnData["url"] = VersionData["url"]
+        returnData["md5"] = VersionData["md5"]
+        returnData["content"] = VersionData["updateContent"]
+    else:
+        returnData["update"] = "0"
 
     return resultCode, returnData
