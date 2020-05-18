@@ -5,7 +5,7 @@ from django.http import HttpResponse
 import json
 
 
-def updateTest(request):
+def serverTest(request):
     print("update views updateTest!!!!!!!!!!!!")
     return render(request, 'uphtml/test.html')
 
@@ -26,7 +26,7 @@ def CheckVersion(request):
 
         response = HttpResponse()
         response.setdefault('result-code', resultCode)
-        response.content_type = 'application/xml'
+        response.content_type = 'application/json'
         response.content = json.dumps(returnData)
 
         return response
