@@ -6,7 +6,7 @@ import json
 
 
 def serverTest(request):
-    print("update views updateTest!!!!!!!!!!!!")
+    print("update views serverTest!!!!!!!!!!!!")
     return render(request, 'uphtml/test.html')
 
 
