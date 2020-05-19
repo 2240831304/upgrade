@@ -12,13 +12,13 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ota.settings")
 django.setup()
 
 import requests
-from update.models import softwarepackage
+from update.models import upgradetest
 
 def insertTestData():
     print("update test insert software upgrade information")
-    object = softwarepackage()
+    object = upgradetest()
     object.device = "86m"
-    object.version = "2.15.1"
+    object.version = "3.0"
     object.md5 = "dddddd2333333333333ddddddddd"
     object.updateContent = "和年度黑得很不愿无为i和i看i相似性你相似"
     object.url = "http://upgrade.obook.com.cn:8080/android/update?serial=86m2019&version=1.12.1"
