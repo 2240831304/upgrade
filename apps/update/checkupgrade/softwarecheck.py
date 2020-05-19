@@ -1,10 +1,9 @@
 
 import urllib.parse
 from django.db.models import Max
-from update.models import softwarepackage
 
 
-def checkUpdate(request):
+def checkUpdate(request,tableOperate):
     #urlPath = request.get_full_path()
     resultCode = "0"
     returnData = {
@@ -30,9 +29,17 @@ def checkUpdate(request):
         resultCode = "2"
         return resultCode, returnData
 
+    if machineType == "":
+        resultCode = "2"
+        return resultCode, returnData
+
     try:
         machineVersion = dictData["version"]
     except:
+        resultCode = "3"
+        return resultCode, returnData
+
+    if machineVersion == "":
         resultCode = "3"
         return resultCode, returnData
     #print(machineType,machineVersion)
@@ -40,13 +47,17 @@ def checkUpdate(request):
     machineType = "86m"
 
     try:
-        recentlyDate = softwarepackage.objects.filter(device=machineType).aggregate(latelyTime=Max('pubdate'))
+        recentlyDate = tableOperate.objects.filter(device=machineType).aggregate(latelyTime=Max('pubdate'))
         #print(recentlyDate['latelyTime'])
-        deviceVersion = softwarepackage.objects.values("version","md5","updateContent","url").\
+        deviceVersion = tableOperate.objects.values("version","md5","updateContent","url").\
             filter(device=machineType,pubdate=recentlyDate['latelyTime'])
         #print(deviceVersion)
     except:
         resultCode = "4"
+        return resultCode, returnData
+
+    if len(deviceVersion) == 0:
+        resultCode = "0"
         return resultCode, returnData
 
     VersionData = deviceVersion[0]
