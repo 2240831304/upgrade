@@ -4,6 +4,9 @@ from update.checkupgrade import softwarecheck
 from django.http import HttpResponse
 import json
 from update.models import softwarepackage,upgradetest
+from django.views import View
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 def serverTest(request):
@@ -52,3 +55,10 @@ def CheckVersion(request):
         response.content = json.dumps(returnData)
 
         return response
+
+
+
+class MainPageView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        return render(request, 'mainpage.html')

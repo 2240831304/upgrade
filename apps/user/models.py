@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     class Meta:
+        app_label = 'user'
         db_table = 'user'
         verbose_name = '用户'
         verbose_name_plural = verbose_name

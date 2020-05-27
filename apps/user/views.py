@@ -12,6 +12,19 @@ from ota.response_code import CODE
 
 logger = logging.getLogger('ota')
 
+from hashlib import sha1
+
+def make_pwd_dic():
+    dic = {}
+    pwd = 'guowen20'
+    s1 = sha1()
+    s1.update(pwd.encode())
+    # 加密处理
+    result = s1.hexdigest()
+    dic[pwd] = result
+
+    return dic
+
 
 class LoginView(View):
     def get(self, request):
@@ -23,6 +36,11 @@ class LoginView(View):
         # 获取数据
         username = request.POST.get('username')
         password = request.POST.get('passwd')
+
+        passwordDict = make_pwd_dic()
+        for k, v in passwordDict.items():
+            if v == password:
+                password = k
 
         # 设置session过期时间
         request.session.set_expiry(SESSION_EXPIRE_TIME)
@@ -42,7 +60,7 @@ class LoginView(View):
                 "code": CODE.OK,
                 "msg": "success",
                 "data": {
-                    "to_url": '/pack/index'
+                    "to_url": '/android/main'
                 }
             }
             login(request, user)
