@@ -29,7 +29,8 @@ def make_pwd_dic():
 class LoginView(View):
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect('pack:index')
+            #return redirect('android:main')
+            return render(request, 'mainpage.html')
         return render(request, 'login.html')
 
     def post(self, request):

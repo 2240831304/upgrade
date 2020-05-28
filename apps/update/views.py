@@ -1,5 +1,5 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from update.checkupgrade import softwarecheck
 from django.http import HttpResponse
 import json
@@ -7,6 +7,7 @@ from update.models import softwarepackage,upgradetest
 from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.http.response import JsonResponse
 
 
 def serverTest(request):
@@ -67,8 +68,23 @@ class MainPageView(View):
 class PushlisVersionTestView(View):
     @method_decorator(login_required)
     def get(self, request):
+        if request.user.is_authenticated:
+            #return redirect('android:main')
+            return render(request, 'publishtestpage.html')
+        return render(request, 'login.html')
+
+
+    def post(self, request):
         print("apps version update views PushlisVersionTestView !!!")
-        #return render(request, 'mainpage.html')
+        context = {
+            "code": "0",
+            "msg": "success",
+            "data": {
+                "to_url": '/android/pushlishtest'
+            }
+        }
+        response = JsonResponse(context)
+        return response
 
 
 class PublishVersionView(View):
