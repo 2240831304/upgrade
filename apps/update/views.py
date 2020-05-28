@@ -62,3 +62,23 @@ class MainPageView(View):
     @method_decorator(login_required)
     def get(self, request):
         return render(request, 'mainpage.html')
+
+
+class PushlisVersionTestView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        print("apps version update views PushlisVersionTestView !!!")
+        #return render(request, 'mainpage.html')
+
+
+class PublishVersionView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        print("apps version update views PublishVersionView !!!")
+        # return render(request, 'mainpage.html')
+
+class VersionManagerView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        print("apps version manage views PublishVersionView !!!")
+        # return render(request, 'mainpage.html')

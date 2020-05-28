@@ -1,0 +1,58 @@
+
+
+.main{
+    height: 500px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#FF0000;
+}
+
+.mainpage{
+    height: 500px;
+    float:left;
+
+    /*
+    border-style:solid;
+    border-width:1px;
+    border-color:#000;
+    */
+}
+
+.option{
+    width: 100px;
+    float:left;
+}
+
+.displayarea{
+    width: 600px;
+    height: 90%;
+    float:left;
+    margin-left: 30px;
+
+    /*
+    border-style:solid;
+    border-width:1px;
+    border-color:#000;
+    */
+}
+
+.versionmanage{
+    background-color: #FF0000;
+}
+
+.versionpublish{
+    margin-top: 5px;
+    background-color: #FF0000;
+}
+
+.publishtest{
+    margin-top: 5px;
+    background-color: #FF0000;
+}
+
+
+input{
+    border: 5px;
+    height: 50px;
+    width: 100px;
+}

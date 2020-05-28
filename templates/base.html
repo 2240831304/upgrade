@@ -24,33 +24,17 @@
 
 <body>
     <div class="page">
-        <div class="header">
-            <div class="top_bar">
-                <div class="title fl">
-                    <h1>
-                        当当国文电子阅读器软件更新
-                    </h1>
-                </div>
-                <div class="login fr">
-                    {% if request.user.is_authenticated %}
-                    欢迎您&nbsp;{{ request.user.username }}|
-                    <a id="logout" href="{% url 'userview:logout' %}">注销</a>
-                    {% else %}
-                    <a id="login" href="#">[登录]</a>
-                    {% endif %}
-                </div>
+        <div class="top_bar">
+            <div class="title fl">
+                <h1>
+                    当当国文电子阅读器软件更新
+                </h1>
             </div>
-            <div class="navigation_back clearfix">
-                <div class="navigation clear fl">
-                    <ul class="fl">
-                        <li class="fl">
-                            <a href="{% url 'pack:index' %}">更新包列表</a>
-                        </li>
-                        <li class="fl">
-                            <a href="{% url 'faq:faqs' %}">faq列表</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="login fr">
+                {% if request.user.is_authenticated %}
+                欢迎您&nbsp;{{ request.user.username }} |
+                <a id="logout" href="{% url 'userview:logout' %}">退出</a>
+                {% endif %}
             </div>
         </div>
         {% block main %}

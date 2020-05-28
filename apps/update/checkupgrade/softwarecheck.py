@@ -4,7 +4,8 @@ from django.db.models import Max
 
 
 def checkUpdate(request,tableOperate):
-    #urlPath = request.get_full_path()
+    urlPath = request.get_full_path()
+    print(urlPath)
     resultCode = "0"
     returnData = {
         "update":"0",

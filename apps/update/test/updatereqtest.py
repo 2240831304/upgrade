@@ -27,7 +27,7 @@ def insertTestData():
 
 def requestTest():
     print("update test updatereqtest this is test!!!")
-    url = "http://upgrade.obook.com.cn:8080/android/updatetest?serial=86m2019&version=3.9.1"
+    url = "http://upgrade.obook.com.cn:9000/android/updatetest?serial=86m2019&version=3.9.1"
     header = {'action':'softwareupgrade'}
     req = requests.get(url=url,headers=header)
     print(req.headers)

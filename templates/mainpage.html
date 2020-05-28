@@ -5,12 +5,31 @@
 {% endblock %}
 
 {% block link %}
-    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
-    <script src="{% static 'js/sha1.min.js' %}"></script>
+    <link href="{% static 'css/mainpage.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/option.js' %}"></script>
 {% endblock %}
 
 
 {% block main %}
-
+<div class="main" clearfix>
+    <div class="mainpage sty" clearfix>
+        <div class="option" clearfix>
+            <div class="versionmanage" clearfix>
+                <input type="button" value="管理版本">
+            </div>
+            <div class="versionpublish" clearfix>
+                <input type="button" value="发布版本">
+            </div>
+            <div class="publishtest" clearfix>
+                <input class="publishtestbut" type="button" value="发布测试">
+            </div>
+        </div>
+        {% block displayarea %}
+        <div class="displayarea">
+            <p>这里是显示区域</p>
+        </div>
+        {% endblock %}
+    </div>
+</div>
 
 {% endblock %}
