@@ -69,7 +69,7 @@ class PushlisVersionTestView(View):
     @method_decorator(login_required)
     def get(self, request):
         if request.user.is_authenticated:
-            #return redirect('android:main')
+            #return redirect('update:pushlishtest')
             return render(request, 'publishtestpage.html')
         return render(request, 'login.html')
 
@@ -90,11 +90,41 @@ class PushlisVersionTestView(View):
 class PublishVersionView(View):
     @method_decorator(login_required)
     def get(self, request):
-        print("apps version update views PublishVersionView !!!")
-        # return render(request, 'mainpage.html')
+        if request.user.is_authenticated:
+            #return redirect('update:pushlishtest')
+            return render(request, 'publishpage.html')
+        return render(request, 'login.html')
+
+
+    def post(self, request):
+        context = {
+            "code": "0",
+            "msg": "success",
+            "data": {
+                "to_url": '/android/publishversion'
+            }
+        }
+        response = JsonResponse(context)
+        return response
+
+
 
 class VersionManagerView(View):
     @method_decorator(login_required)
     def get(self, request):
-        print("apps version manage views PublishVersionView !!!")
-        # return render(request, 'mainpage.html')
+        if request.user.is_authenticated:
+            #return redirect('update:pushlishtest')
+            return render(request, 'managepage.html')
+        return render(request, 'login.html')
+
+
+    def post(self, request):
+        context = {
+            "code": "0",
+            "msg": "success",
+            "data": {
+                "to_url": '/android/managerversion'
+            }
+        }
+        response = JsonResponse(context)
+        return response

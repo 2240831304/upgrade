@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+{% extends 'mainpage.html' %}
+
+{% block load %}
+{% load static from staticfiles %}
+{% endblock %}
+
+
+{% block link %}
+    <link href="{% static 'css/mainpage.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/option.js' %}"></script>
+{% endblock %}
+
+
+
+{% block displayarea %}
+<div class="displayarea" clearfix>
+    <p>这里是版本管理区域</p>
+</div>
+{% endblock %}
+

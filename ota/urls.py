@@ -31,6 +31,6 @@ urlpatterns = [
     # 将原有的包文件同步到oss中
     path('upload_pack', upload_pack),
     path('upload_pack_test', upload_pack_test),
-    path('android/', include('apps.update.urls')),
+    path('android/', include('apps.update.urls',namespace='update')),
     path('', LoginView.as_view()),
 ]

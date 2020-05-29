@@ -5,15 +5,17 @@
 {% load static from staticfiles %}
 {% endblock %}
 
-{% block link %}
 
+{% block link %}
+    <link href="{% static 'css/mainpage.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/option.js' %}"></script>
 {% endblock %}
 
 
 
 {% block displayarea %}
 <div class="displayarea" clearfix>
-    <p>这里是测试区域</p>
+    <p>这里是版本发布测试区域</p>
 </div>
 {% endblock %}
 

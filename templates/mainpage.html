@@ -15,13 +15,13 @@
     <div class="mainpage sty" clearfix>
         <div class="option" clearfix>
             <div class="versionmanage" clearfix>
-                <input type="button" value="管理版本">
+                <input type="button" onclick="versionmanagehandle()" value="管理版本">
             </div>
             <div class="versionpublish" clearfix>
-                <input type="button" value="发布版本">
+                <input type="button" onclick="versionpublishhandle()" value="发布版本">
             </div>
             <div class="publishtest" clearfix>
-                <input type="button" onclick="handle()" value="发布测试">
+                <input type="button" onclick="publishtesthandle()" value="发布测试">
             </div>
         </div>
         {% block displayarea %}
