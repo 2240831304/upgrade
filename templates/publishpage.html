@@ -8,14 +8,47 @@
 
 {% block link %}
     <link href="{% static 'css/mainpage.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/publishversion.css' %}" rel="stylesheet" type="text/css">
     <script src="{% static 'js/option.js' %}"></script>
 {% endblock %}
 
 
-
 {% block displayarea %}
 <div class="displayarea" clearfix>
-    <p>这里是版本正式发布区域</p>
+    <div class="publishtitle" clearfix>
+        <p>swjhsuikswoswsw</p>
+    </div>
+    <div class="softwareinfo" clearfix>
+        <form data-ajax="false" method="POST" class="publishversion" id="softwareupgrade" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="devicetype" clearfix>
+                <label class="publishlabelstype">设备型号:</label>
+                <input type="text" class="publishinputstyle" id="devicetype" name="devicetype"> <br>
+            </div>
+            <div class="versionnumber" clearfix>
+                <label class="publishlabelstype">版本编号:</label>
+                <input type="text" class="publishinputstyle" id="versionnum" name="devicetype"> <br>
+            </div>
+            <div class="packetmd5" clearfix>
+                <label class="publishlabelstype">MD5校验值:</label>
+                <input type="text" class="publishinputstyle" id="packetmd5value"> <br>
+            </div>
+            <div class="illustrate" clearfix>
+                <label class="publishlabelstype">更新说明:</label>
+                <textarea class="publishinputstyle" id="illustrate"></textarea>
+            </div>
+            <div class="fileupload" clearfix>
+                <label class="publishlabelstype">文件上传:</label>
+                <input type="file" class="publishinputstyle" id="fileupload">
+            </div>
+            <div class="error-msg" id="error-msg">
+                <p>&nbsp;</p>
+            </div>
+            <div class="publishbut" clearfix>
+                <input type="submit" id="publishbut" value="确认发布">
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}
 

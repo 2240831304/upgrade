@@ -1,0 +1,96 @@
+
+
+.softwareinfo{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.publishlabelstype{
+    display:inline-block;
+    width:100px;
+    height: 40px;
+
+    margin-top: 5px;
+
+    /*
+    line-height: 10px;
+    */
+    font-size: 16px;
+    text-align: center;
+    vertical-align:middle;
+
+    border-style:solid;
+    border-width:1px;
+    border-color:#FF00FF;
+}
+
+
+.publishinputstyle{
+    height: 40px;
+    width: 350px;
+    margin-left: 10px;
+
+    /*
+    line-height: 10px;
+    */
+
+    border-style:solid;
+    border-width:1px;
+    border-color:#FF00FF;
+}
+
+
+.devicetype{
+
+}
+
+.versionnumber{
+
+}
+
+.packetmd5{
+
+}
+
+.illustrate{
+
+}
+
+
+#illustrate{
+    width:350px;
+    height:80px;
+}
+
+
+.fileupload{
+
+}
+
+
+#fileupload{
+}
+
+.error-msg p{
+    color: #cc0000;
+}
+
+.publishbut{
+    margin-top: 30px;
+}
+
+#publishbuttest {
+    background-color: #FF0000;
+    display:block;
+    width: 150px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#publishbut {
+    background-color: #FF0000;
+    display:block;
+    width: 150px;
+    margin-left:auto;
+    margin-right:auto;
+}

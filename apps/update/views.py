@@ -8,6 +8,10 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http.response import JsonResponse
+import os
+import urllib.parse
+from django.http import FileResponse
+import hashlib
 
 
 def serverTest(request):
@@ -128,3 +132,158 @@ class VersionManagerView(View):
         }
         response = JsonResponse(context)
         return response
+
+
+def HandlePublishNewsTest(request):
+    InsertPublishData(request,upgradetest)
+    context = {
+        "code": "0",
+        "msg": "success",
+        "data": {
+            "to_url": '/android/pushlishtest'
+        }
+    }
+    response = JsonResponse(context)
+    return response
+
+
+def HandlePublishNews(request):
+    InsertPublishData(request, softwarepackage)
+    context = {
+        "code": "0",
+        "msg": "success",
+        "data": {
+            "to_url": '/android/publishversion'
+        }
+    }
+    response = JsonResponse(context)
+    return response
+
+
+
+def InsertPublishData(request,tableoperate):
+    pass
+
+
+
+def HandlePackage(request):
+    returncode = "0"
+    msg = "success"
+    context = {
+        "returncode": returncode,
+        "msg": msg,
+        "to_url": '/android/pushlishtest'
+    }
+
+    #实现表单上传
+    if request.method == "POST":
+        devicetype = request.POST.get("device")
+        #print(devicetype)
+        if devicetype == "":
+            context["returncode"] = "1"
+            context["msg"] = "服务器获取不到设备类型,发布失败"
+            response = JsonResponse(context)
+            return response
+
+        obj = request.FILES.get('packet')
+        name = str(obj)
+        #print(name)
+        sysUserPath = os.path.expanduser('~')
+        filename = sysUserPath + "/package"
+
+        typetm = request.POST.get("type")
+        if typetm == "test":
+            filename = filename + "/test/" + name
+        elif typetm == "official":
+            filename = filename + "/official/" + name
+            context["to_url"] = "/android/publishversion"
+
+        #print(obj, filename)
+        if os.path.exists(filename):
+            os.remove(filename)
+
+        fobj = open(filename, 'wb')
+        for chrunk in obj.chunks():
+            fobj.write(chrunk)
+        fobj.close()
+
+        uploadMd5 = request.POST.get("md5")
+        localMd5 = hashlib.md5(open(filename,'rb').read()).hexdigest()
+        #print(uploadMd5,localMd5)
+        if uploadMd5 != localMd5 :
+            context["returncode"] = "1"
+            context["msg"] = "软件包上传失败,请检查MD5,重新发布"
+            response = JsonResponse(context)
+            return response
+
+        returncodetm,msgtm = insertVersionData(request,name)
+        context["returncode"] = returncodetm
+        context["msg"] = msgtm
+        response = JsonResponse(context)
+        return response
+
+
+    #文件下载
+    if request.method == "GET":
+        urlParse = urllib.parse.urlparse(request.get_full_path())
+        filedir = urlParse.query
+
+        sysUserPath = os.path.expanduser('~')
+        filename = sysUserPath + "/package/" + filedir
+        print(filename)
+
+        file = open(filename, 'rb')
+        response = FileResponse(file)
+        response['Content-Type'] = 'application/octet-stream'
+        response['Content-Disposition'] = 'attachment;'
+        return response
+
+
+
+def insertVersionData(request,filename):
+    returncode = "0"
+    msg = "success"
+
+    typetm = request.POST.get("type")
+    devicetype = request.POST.get("device")
+    versionnum = request.POST.get("version")
+    md5 = request.POST.get("md5")
+    content = request.POST.get("content")
+    # print(request.path_info)
+    # print(request.scheme)
+    # print(request.get_host())
+
+    url = request.scheme + "://" + request.get_host() + request.path_info + "?"
+    #print(url)
+
+    if typetm == "test":
+        url = url + "test/" + filename
+        #print(url)
+        try:
+            object = upgradetest()
+            object.device = devicetype
+            object.version = versionnum
+            object.md5 = md5
+            object.updateContent = content
+            object.url = url
+            object.save()
+        except:
+            returncode = "1"
+            msg = "发布数据写入数据库出错,请重新发布"
+
+    elif typetm == "official":
+        url = url + "official/" + filename
+        #print(url)
+        try:
+            object = softwarepackage()
+            object.device = devicetype
+            object.version = versionnum
+            object.md5 = md5
+            object.updateContent = content
+            object.url = url
+            object.save()
+        except:
+            returncode = "1"
+            msg = "发布数据写入数据库出错,请重新发布"
+
+    return returncode,msg

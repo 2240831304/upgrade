@@ -13,4 +13,7 @@ urlpatterns = [
     path('pushlishtest',views.PushlisVersionTestView.as_view(),name='pushlishtest'),
     path('publishversion',views.PublishVersionView.as_view(),name="publishversion"),
     path('managerversion',views.VersionManagerView.as_view(),name="managerversion"),
+    path('publishnewstest',views.HandlePublishNewsTest),
+    path('publishnews',views.HandlePublishNews),
+    path('upgradepackage',views.HandlePackage),
 ]
