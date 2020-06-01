@@ -7,12 +7,12 @@ $(document).ready(function(){
         passwd = sha1(passwd);
         // 校验是否有值
         if (!username) {
-            $("#error-msg p").html("用户名不能为空！");
+            $("#error-msg p").html("******用户名不能为空******");
             $("#error-msg p").show();
             return;
         }
         if (!passwd) {
-            $('#error-msg p').html('密码不能为空');
+            $('#error-msg p').html('******密码不能为空******');
             $('#error-msg p').show();
             return;
         }
