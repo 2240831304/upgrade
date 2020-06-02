@@ -8,14 +8,39 @@
 
 {% block link %}
     <link href="{% static 'css/mainpage.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/managepage.css' %}" rel="stylesheet" type="text/css">
     <script src="{% static 'js/option.js' %}"></script>
+    <script src="{% static 'js/managepage.js' %}"></script>
 {% endblock %}
 
 
 
 {% block displayarea %}
 <div class="displayarea" clearfix>
-    <p>这里是版本管理区域</p>
+    <div class="managertitle" clearfix>
+        <p> 版 本 管 理 </p>
+    </div>
+
+    <div class="manageversion" clearfix>
+        <div class="selectdevicetype" clearfix>
+            <label class="selectlabelstype">设备型号:</label>
+            <input type="text" class="selectinputstyle" id="devicetype"> <br>
+        </div>
+        <div class="selectversion" clearfix>
+            <input type="radio" class="selectinput" name="versionradio" value="testradio">
+            <label id="selectlabel">测试版本</label>
+            <input type="radio" class="selectinput" name="versionradio" value="officialradio">
+            <label id="selectlabel">正式版本</label>
+        </div>
+        <div class="sendrequest" clearfix>
+            <input type="button" id="sendrequestbut" onclick="selectrequest()" value="查询">
+        </div>
+    </div>
+
+    <div class="versionlist" clearfix>
+
+    </div>
+
 </div>
 {% endblock %}
 

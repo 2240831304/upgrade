@@ -1,0 +1,99 @@
+
+
+.managertitle{
+    background-color: #6699FF;
+    height: 40px;
+    width: 100%;
+}
+
+.managertitle p{
+    font-size: 22px;
+    height: 40px;
+    width: 100%;
+    color:#FF0000;
+
+    text-align: center;
+    vertical-align:middle;
+}
+
+.selectversion{
+    margin-top: 2px;
+}
+
+.selectlabelstype{
+    display:inline-block;
+    width:100px;
+    height: 40px;
+
+    font-size: 22px;
+    vertical-align:middle;
+    text-align: center;
+
+    border-style:solid;
+    border-width:1px;
+    border-color:#FF00FF;
+
+}
+
+
+.selectinputstyle{
+    height: 40px;
+    width: 150px;
+    margin-left: 10px;
+    vertical-align: middle;
+
+    border-style:solid;
+    border-width:1px;
+    border-color:#FF00FF;
+}
+
+.manageversion{
+    width: 100%;
+    background-color: #B0B0B0;
+
+    /*
+    border-style:solid;
+    border-width:1px;
+    border-color:#FF0000;
+    */
+}
+
+.selectdevicetype{
+    display:inline-block;
+}
+
+.selectversion{
+    margin-left: 3px;
+    height: 40px;
+    display:inline-block;
+}
+
+.selectinput{
+    height: 40px;
+    width: 15px;
+    vertical-align:middle;
+}
+
+#selectlabel{
+    display:inline-block;
+    height: 40px;
+
+    font-size: 22px;
+    vertical-align:middle;
+    text-align: center;
+}
+
+.sendrequest{
+    margin-left: 3px;
+    display:inline-block;
+}
+
+#sendrequestbut{
+    height: 40px;
+    display:inline-block;
+    background-color: #00CC33;
+}
+
+.versionlist{
+    width: 100%;
+}

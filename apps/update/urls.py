@@ -16,4 +16,5 @@ urlpatterns = [
     path('publishnewstest',views.HandlePublishNewsTest),
     path('publishnews',views.HandlePublishNews),
     path('upgradepackage',views.HandlePackage),
+    path('versionmanagesys',views.VersionManageSys),
 ]

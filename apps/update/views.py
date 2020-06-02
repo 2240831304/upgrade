@@ -287,3 +287,70 @@ def insertVersionData(request,filename):
             msg = "发布数据写入数据库出错,请重新发布"
 
     return returncode,msg
+
+
+def VersionManageSys(request):
+    print("apps update views.py VersionManageSys handle!")
+    returndata = {
+        "code":"0",
+        "msg":"",
+        "data":""
+    }
+
+    if request.method == "GET":
+        typetm = request.GET.get("type")
+        devicetype = request.GET.get("device")
+        if (typetm == "") or (devicetype == ""):
+            returndata["code"] = "1"
+            returndata["msg"] = "服务器未获取到查询类型,请重新查询"
+            response = JsonResponse(returndata)
+            return response
+
+        datalist = None
+        if typetm == "test":
+            try:
+                datalist = upgradetest.objects.values("version","pubdate").filter(device=devicetype).order_by("-pubdate")
+            except:
+                returndata["code"] = "1"
+                returndata["msg"] = "服务器查询数据库出现异常"
+                response = JsonResponse(returndata)
+                return response
+        elif typetm == "official":
+            try:
+                datalist = softwarepackage.objects.values("version", "pubdate").filter(device=devicetype).order_by("-pubdate")
+            except:
+                returndata["code"] = "1"
+                returndata["msg"] = "服务器查询数据库出现异常"
+                response = JsonResponse(returndata)
+                return response
+        #print(datalist)
+        if datalist :
+            datatm = dataHandle(datalist,devicetype)
+            returndata["code"] = "0"
+            returndata["data"] = datatm
+            response = JsonResponse(returndata)
+            return response
+
+        else:
+            returndata["code"] = "0"
+            returndata["msg"] = "此设备类型暂无发布版本"
+            response = JsonResponse(returndata)
+            return response
+
+
+    if request.method == "POST":
+        print(request.body)
+
+
+
+def dataHandle(data,devicetype):
+    datalist = []
+    for value in data:
+        dictdata = dict()
+        dictdata["device"] = devicetype
+        dictdata["version"] = value["version"]
+        dictdata["publishtime"] = value["pubdate"]
+
+        datalist.append(dictdata)
+
+    return datalist

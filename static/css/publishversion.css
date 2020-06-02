@@ -4,6 +4,7 @@
     width: 100%;
     margin-top: 20px;
     margin-left: 100px;
+
 }
 
 .publishlabelstype{
@@ -11,14 +12,14 @@
     width:100px;
     height: 40px;
 
-    margin-top: 5px;
-
     /*
     line-height: 10px;
+    margin-top: 5px;
     */
     font-size: 16px;
-    text-align: center;
     vertical-align:middle;
+    text-align: center;
+
 
     border-style:solid;
     border-width:1px;
@@ -30,6 +31,7 @@
     height: 40px;
     width: 380px;
     margin-left: 10px;
+    vertical-align: middle;
 
     /*
     line-height: 10px;
@@ -62,15 +64,15 @@
 }
 
 .versionnumber{
-
+    margin-top: 3px;
 }
 
 .packetmd5{
-
+    margin-top: 3px;
 }
 
 .illustrate{
-
+    margin-top: 3px;
 }
 
 
@@ -81,7 +83,7 @@
 
 
 .fileupload{
-
+    margin-top: 3px;
 }
 
 
