@@ -339,7 +339,32 @@ def VersionManageSys(request):
 
 
     if request.method == "POST":
-        print(request.body)
+        typetm = request.POST.get("type")
+        devicetype = request.POST.get("device")
+        deviceversion = request.POST.get("version")
+        print(typetm,devicetype,deviceversion)
+        if (typetm == "") or (devicetype == "") or (deviceversion == ""):
+            returndata["code"] = "1"
+            response = JsonResponse(returndata)
+            return response
+
+        if typetm == "test":
+            try:
+                upgradetest.objects.filter(device=devicetype,version=deviceversion).delete()
+            except:
+                returndata["code"] = "1"
+                response = JsonResponse(returndata)
+                return response
+        elif typetm == "official":
+            try:
+                softwarepackage.objects.filter(device=devicetype,version=deviceversion).delete()
+            except:
+                returndata["code"] = "1"
+                response = JsonResponse(returndata)
+                return response
+
+        response = JsonResponse(returndata)
+        return response
 
 
 
