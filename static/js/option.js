@@ -76,7 +76,12 @@ $(document).ready(function(){
     $("#publishbuttest").click(function(){
         // 阻止form表单自己的提交事件
         event.preventDefault();
-        alert("发布测试版本,请点击确认");
+
+        if(window.confirm("发布测试版本,请点击确认")){
+        } else {
+            return;
+        }
+
         var devicetype = $('#devicetype').val();
         if (!devicetype) {
             $("#error-msg p").html("设备型号不能为空！");
@@ -149,20 +154,37 @@ $(document).ready(function(){
         };
         xhr.open('post','/android/upgradepackage', true);
         xhr.setRequestHeader("X-CSRFToken",csrftoken);
-        $("#error-msg p").html("正在上传软件包,请等候");
-        $("#error-msg p").show();
+        xhr.upload.onprogress = progressFunction;
+        // $("#error-msg p").html("正在上传软件包,请等候");
+        // $("#error-msg p").show();
         xhr.send(form);
 
     });
 });
 
 
+function progressFunction(evt) {
+    // evt.total是需要传输的总字节，evt.loaded是已经传输的字节。如果evt.lengthComputable不为真，则evt.total等于0
+    if (evt.lengthComputable) {
+        var mesg = "正在上传软件包,请等候...";
+        mesg += '当前上传进度:'+ Math.round(evt.loaded / evt.total * 100) + "%";
+        $("#error-msg p").html(mesg);
+        $("#error-msg p").show();
+        //console.log('当前上传进度'+ Math.round(evt.loaded / evt.total * 100) + "%");
+    }
+}
+
 
 $(document).ready(function(){
     $("#publishbut").click(function(){
         // 阻止form表单自己的提交事件
         event.preventDefault();
-        alert("发布正式版本,请点击确认");
+
+        if(window.confirm("发布测试版本,请点击确认")){
+        } else {
+            return;
+        }
+
         var devicetype = $('#devicetype').val();
         if (!devicetype) {
             $("#error-msg p").html("设备型号不能为空！");
@@ -235,8 +257,9 @@ $(document).ready(function(){
         };
         xhr.open('post','/android/upgradepackage', true);
         xhr.setRequestHeader("X-CSRFToken",csrftoken);
-        $("#error-msg p").html("正在上传软件包,请等候");
-        $("#error-msg p").show();
+        xhr.upload.onprogress = progressFunction;
+        // $("#error-msg p").html("正在上传软件包,请等候");
+        // $("#error-msg p").show();
         xhr.send(form);
 
     });
