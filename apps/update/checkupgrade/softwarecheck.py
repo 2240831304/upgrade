@@ -44,8 +44,10 @@ def checkUpdate(request,tableOperate):
         resultCode = "3"
         return resultCode, returnData
     #print(machineType,machineVersion)
-
-    machineType = "86m"
+    list1 = list(machineType)
+    machineType = ""
+    machineType = list1[2] + list1[3] + list1[4]
+    #print(machineType)
 
     try:
         recentlyDate = tableOperate.objects.filter(device=machineType).aggregate(latelyTime=Max('pubdate'))
